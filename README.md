@@ -4,7 +4,6 @@ WordQuest is a simple, single-page vocabulary quiz built with HTML, CSS, Bootstr
 
 **Live Demo:** _To be added after GitHub Pages deployment_  
 **Repository:** https://github.com/darakhshanda/Hackathon1  
-**Google Doc:** https://docs.google.com/document/d/1CO9IxA_MEyEC7lFxKhBYlxd-kqR2fAmxuK1pD1NAjeQ/
 
 ---
 
@@ -133,12 +132,14 @@ All content is served via one main HTML file (`index.html`) that links to styles
 
 ### CSS Architecture
 - `assets/css/style.css` (global styles)  
-- Optional team imports:  
+- Optional team imports:  @import "DS/DS/JC/GC.css"
 
-@import "DS.css";
-@import "DR.css";
-@import "JC.css";
-@import "GC.css";
+### colors (Against white text color)
+- Pink (accent) - Dark Pink #C65E82
+- Blue (primary accent) - Dark Blue #3A8AC0
+- Green (success)  - Dark Green #4B7C48
+- Beige/Pink (secondary) - Dusty Rose #B38A83
+- Red (danger/error) - Dark Red #A82828
 
 ---
 
