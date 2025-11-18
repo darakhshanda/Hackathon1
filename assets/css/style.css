@@ -1,14 +1,23 @@
-@import url(/assets/css/dr.css);
-@import url(/assets/css/ds.css);
-@import url(/assets/css/gc.css);
-@import url(/assets/css/jc.css);
-.root {
-    --primary-color: #3498db;
+/** ::before and ::after: those pseudo-elements can also affect layout, so including them ensures they follow the same sizing rules.
+Placement: putting these rules at the top of style.css (before your @imports) ensures imported styles inherit border-box by default.
+override for different behavior: per-element, e.g. input { box-sizing: content-box; }.**/
+
+:root {
+ --primary-color: #3498db;
     --secondary-color: #2ecc71;
     --font-family: Arial, sans-serif;
     --font-size-base: 16px;
     --line-height-base: 1.5;
+  box-sizing: border-box;
 }
+
+*, *::before, *::after { box-sizing: inherit; }
+
+@import url(/assets/css/dr.css);
+@import url(/assets/css/ds.css);
+@import url(/assets/css/gc.css);
+@import url(/assets/css/jc.css);
+
 body {
     font-family: var(--font-family);
     font-size: var(--font-size-base);
