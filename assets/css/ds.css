@@ -1,0 +1,120 @@
+/* Basic layout only — no color styles included */
+
+
+.box{
+        border: 2px solid #0731da;
+        border-radius: 10px;
+        padding: 10px;
+        box-shadow: 2px 2px 5px #024ae659;
+       
+    }
+
+.quiz {
+  width: 100%;
+  max-width: 720px;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 18px;
+}
+
+.card {
+  padding: 18px;
+  border: 2px solid;
+  border-radius: 12px;
+  box-sizing: border-box;
+}
+
+.question {
+  font-size: 1.25rem;
+  margin-bottom: 18px;
+}
+
+.options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.optionBtn {
+  padding: 14px;
+  font-size: 1rem;
+  border-radius: 10px;
+  border: 2px solid;
+  cursor: pointer;
+  text-align: center;
+  user-select: none;
+  transition: transform 120ms ease, font-weight 120ms ease;
+  white-space: normal;
+  background: transparent;
+}
+
+.optionBtn:focus {
+  outline: 4px auto;
+  outline-offset: 3px;
+}
+
+.optionBtn.selected {
+  font-weight: 700;
+  transform: scale(1.03);
+}
+
+.controls {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin-top: 8px;
+  flex-wrap: wrap;
+}
+
+.nav-btn {
+  padding: 10px 14px;
+  font-size: 0.95rem;
+  border-radius: 8px;
+  border: 2px solid;
+  cursor: pointer;
+  background: transparent;
+}
+
+.nav-btn[disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.meta {
+  margin-top: 12px;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+/* Utility to hide/show elements toggled by JS */
+.hidden { display: none !important; }
+
+/* Fullscreen centered quiz window (simple overlay) */
+.quiz-window {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.5);
+  z-index: 1050;
+  padding: 20px;
+}
+
+.quiz-window .quiz-panel {
+  max-width: 900px;
+  width: 100%;
+  background: #fff;
+  padding: 18px;
+  border-radius: 10px;
+}
+
+/* Results styling for per-question feedback */
+.detailed-results .result-item { border: 1px solid #e6e6e6; border-radius: 8px; }
+.result-options { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 8px; }
+.result-option { border: 1px solid #ccc; border-radius: 8px; background: #fafafa; }
+.result-option.correct { background: #e6ffea; border-color: #28a745; }
+.result-option.wrong-selected { background: #ffecec; border-color: #dc3545; }
