@@ -1,10 +1,4 @@
-@import '/assets/css/dr.css';
-@import '/assets/css/ds.css';
-@import '/assets/css/gc.css';
-@import '/assets/css/jc.css';
-
-
-.root{
+.root {
     --primary-color: #3498db;
     --secondary-color: #2ecc71;
     --font-family: Arial, sans-serif;
@@ -20,7 +14,12 @@ body {
     margin: 0;
     padding: 0;
 }
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     color: var(--secondary-color);
     margin-top: 0;
 }
