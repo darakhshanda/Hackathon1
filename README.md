@@ -6,6 +6,8 @@ Live Demo: To be added after GitHub Pages deployment
 
 Repository: https://github.com/darakhshanda/Hackathon1
 
+Google Doc: https://docs.google.com/document/d/1CO9IxA_MEyEC7lFxKhBYlxd-kqR2fAmxuK1pD1NAjeQ/
+
 ## Table of Contents
 
 - Overview
