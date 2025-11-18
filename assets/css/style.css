@@ -1,3 +1,9 @@
+@import '/assets/css/dr.css';
+@import '/assets/css/ds.css';
+@import '/assets/css/gc.css';
+@import '/assets/css/jc.css';
+
+
 .root{
     --primary-color: #3498db;
     --secondary-color: #2ecc71;
