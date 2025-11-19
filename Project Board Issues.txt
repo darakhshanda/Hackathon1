@@ -1,0 +1,291 @@
+Project board:
+
+Must Have (MVP)
+
+
+##Intro Text and Instructions
+
+#Accessibility Criteria:
+
+[ ] Clear, simple language with short sentences
+
+[ ] High-contrast text on calm background
+
+[ ] Screen reader accessible with semantic HTML 
+
+#Tasks:
+
+[ ] Add intro section with <h1> and <p>
+
+[ ] Use ARIA landmarks (<main>, <section>)
+
+[ ] Style with large font (18px+) and accessible contrast
+
+
+
+##Minimum 5 Words in the Quiz
+
+#Accessibility Criteria:
+
+[ ] Minimum of 5 questions loaded before quiz starts
+
+[ ] Consistent layout and spacing 
+
+#Tasks:
+
+[ ] Create question array with 5+ entries
+
+[ ] Validate quiz start condition
+
+
+##4 Answers per Question
+
+#Accessibility Criteria:
+
+[ ] Only one answer selectable
+
+[ ] Large tap areas and clear separation 
+
+#Tasks:
+
+[ ] Use radio buttons or Bootstrap cards
+
+[ ] Add ARIA roles (role="radiogroup", aria-checked)
+
+[ ] Style with spacing and hover/focus states
+
+
+##Big Colourful Buttons (Bootstrap)
+
+#Accessibility Criteria:
+
+[ ] Buttons meet WCAG AA contrast
+
+[ ] Minimum 44px height for touch targets
+
+[ ] Clear labels and keyboard focus 
+
+#Tasks:
+
+[ ] Use Bootstrap classes (btn-lg, btn-primary, etc.)
+
+[ ] Add aria-label for screen readers
+
+[ ] Ensure visible focus styling
+
+##Results Screen / End-of-Game Landing Page
+
+#Accessibility Criteria:
+
+[ ] Clear feedback with color and text
+
+[ ] Score shown in readable format
+
+[ ] Option to restart or retry missed questions 
+
+#Tasks:
+
+[ ] Create results component
+
+[ ] Use green/red indicators with text
+
+[ ] Add “Restart” and “Retry Missed” buttons
+
+
+##Game Controls (Start, Submit, Restart)
+
+#Accessibility Criteria:
+
+[ ] Consistent placement and labeling
+
+[ ] Keyboard and screen reader accessible
+
+[ ] Restart clears all previous data 
+
+# Tasks:
+
+[ ] Add event listeners for controls
+
+[ ] Use semantic HTML <button>
+
+[ ] Reset game state on restart
+
+
+Should Have
+
+##Progress Status
+
+#Accessibility Criteria:
+
+[ ] Progress bar with text label
+
+[ ] Visually and textually communicates position 
+
+#Tasks:
+
+[ ] Add progress bar with Bootstrap or CSS
+
+[ ] Update dynamically
+
+[ ] Include aria-valuenow, aria-valuemax
+
+
+##Back/Forward Navigation
+
+#Accessibility Criteria:
+
+[ ] Buttons clearly labeled
+
+[ ] Previously selected answers retained
+
+[ ] Keyboard accessible 
+
+#Tasks:
+
+[ ] Implement navigation logic
+
+[ ] Store answers in array/object
+
+[ ] Style buttons consistently
+
+
+##Review Answers Before Submit
+
+#Accessibility Criteria:
+
+[ ] Review screen shows all questions and answers
+
+[ ] Unanswered questions clearly marked
+
+[ ] Option to edit answers 
+
+#Tasks:
+
+[ ] Build review component
+
+[ ] Add navigation links
+
+[ ] Highlight unanswered items
+
+
+##Difficulty Selector
+
+#Accessibility Criteria:
+[ ] Options labeled clearly
+
+[ ] Keyboard and screen reader accessible 
+
+#Tasks:
+
+[ ] Add dropdown or toggle
+
+[ ] Filter question sets
+
+[ ] Style with Bootstrap
+
+
+##Question Count Selector
+
+#Accessibility Criteria:
+
+[ ] Allows choosing number of questions
+
+[ ] Easy to use and clearly labeled 
+
+#Tasks:
+
+[ ] Add dropdown or slider
+
+[ ] Validate selection
+
+[ ] Update question array
+
+
+##Custom Question Sets
+
+#Accessibility Criteria:
+
+[ ] Player can choose category/theme
+
+[ ] Easy to navigate 
+
+#Tasks:
+
+[ ] Create category buttons/dropdown
+
+[ ] Load sets dynamically
+
+[ ] Ensure consistent layout
+
+
+
+Could Have
+
+##Grading System
+
+#Accessibility Criteria:
+
+[ ] Grade shown with clear text and color
+
+[ ] Encouraging tone, no harsh feedback 
+
+#Tasks:
+
+[ ] Calculate grade
+
+[ ] Display message and badge
+
+[ ] Style with calm visuals
+
+
+##Accessibility Controls (Font Size, Contrast Toggle)
+
+#Accessibility Criteria:
+[ ] Toggle for high contrast
+
+[ ] Font size adjustment
+
+[ ] Preferences persist 
+
+#Tasks:
+
+[ ] Add toggle and font controls
+
+[ ] Use CSS variables
+
+[ ] Store in localStorage
+
+
+##Additional Game Modes (e.g., Spelling Quest)
+
+#Accessibility Criteria:
+
+[ ] Mode clearly labeled
+
+[ ] Consistent accessibility standards 
+
+#Tasks:
+
+[ ] Create alternate game logic
+
+[ ] Add mode selector
+
+[ ] Ensure accessible UI
+
+
+
+❌ Won’t Have
+
+##Multi-language Functionality
+
+#Accessibility Criteria:
+
+[x] Game will be English-only
+
+[x] All content written in simple English 
+
+#Tasks:
+
+[x] Ensure all content is in English
+
+[x] Avoid language toggles or translation logic
