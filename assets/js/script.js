@@ -533,9 +533,9 @@ function computeResults() {
     else wrong++;
   }
   const score = correct; // 1 point per correct answer
-  if (scoreEl) scoreEl.textContent = `Score: ${score}/${total}`;
-  if (correctEl) correctEl.textContent = `Correct Answers: ${correct}`;
-  if (wrongEl) wrongEl.textContent = `Wrong Answers: ${wrong}`;
+  if (scoreEl) scoreEl.textContent = `${score}/${total}`;
+  if (correctEl) correctEl.textContent = ` ${correct}`;
+  if (wrongEl) wrongEl.textContent = `${wrong}`;
   let unanswered = total - correct - wrong;
   
  
