@@ -322,6 +322,8 @@ const nextBtn = document.getElementById("next");
 const metaEl = document.getElementById("meta");
 // quiz main container for accessibility
 const quizMain = document.getElementById("quiz");
+
+
 // --- Helpers for picking and shuffling questions/options ---
 // Fisher-Yates shuffle
 function shuffleArray(array) {
