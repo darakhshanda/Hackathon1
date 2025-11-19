@@ -304,3 +304,287 @@ const questions = [
     answer: 2
   },
 ];
+
+// `questions` is the full bank. `quizQuestions` is the current randomized subset for a run.
+let quizQuestions = [];
+let total = 0;
+let current = 0;
+// store selected option index for each question, null if none
+let selected = [];
+// DOM elements
+const questionEl = document.getElementById("question");
+// progress display
+const progressEl = document.getElementById("progress");
+// container for option buttons
+const optionsContainer = document.querySelector(".options");
+const prevBtn = document.getElementById("prev");
+const nextBtn = document.getElementById("next");
+const metaEl = document.getElementById("meta");
+// quiz main container for accessibility
+const quizMain = document.getElementById("quiz");
+// --- Helpers for picking and shuffling questions/options ---
+// Fisher-Yates shuffle
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+}
+
+// Shuffle options for a question while preserving which option is correct
+function shuffleQuestionOptions(question) {
+  const opts = question.options.map((text, idx) => ({ text, originalIndex: idx }));
+  shuffleArray(opts);
+  const newOptions = opts.map((o) => o.text);
+  const newAnswer = opts.findIndex((o) => o.originalIndex === question.answer);
+  return { text: question.text, options: newOptions, answer: newAnswer };
+}
+
+// Pick `n` random questions from the bank and shuffle their options
+function pickRandomQuestions(bank, n) {
+  const cap = Math.min(n, bank.length);
+  const copy = bank.slice();
+  shuffleArray(copy);
+  return copy.slice(0, cap).map((q) => shuffleQuestionOptions(q));
+}
+
+// Setup quiz state (without changing visibility) using the value from #questionsSelect or `count`
+function setupQuiz(count) {
+  const sel = document.getElementById("questionsSelect");
+  const desired = Number(sel?.value) || count || 5;
+  quizQuestions = pickRandomQuestions(questions, desired);
+  total = quizQuestions.length;
+  current = 0;
+  selected = Array(total).fill(null);
+}
+// render current question to DOM
+function renderQuestion() {
+  const q = quizQuestions[current]; // current question object
+  questionEl.textContent = q.text; // set question text
+  progressEl.textContent = `Question ${current + 1} / ${total}`; // update progress
+
+  // Accessibility: provide a descriptive label for the quiz container
+  quizMain.setAttribute("aria-label", `Question ${current + 1}: ${q.text}`); // + question text
+
+  // clear options
+  optionsContainer.innerHTML = "";
+
+  // create option buttons
+  q.options.forEach((optText, idx) => {
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "optionBtn";
+    btn.setAttribute("role", "listitem");
+    btn.setAttribute("aria-pressed", String(selected[current] === idx));
+    btn.dataset.index = idx;
+    btn.tabIndex = 0;
+    btn.textContent = optText;
+    if (selected[current] === idx) btn.classList.add("selected");
+
+    btn.addEventListener("click", () => {
+      selectOption(idx);
+    });
+
+    btn.addEventListener("keydown", (e) => {
+      // Enter or Space selects
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        selectOption(idx);
+      }
+    });
+
+    optionsContainer.appendChild(btn);
+  });
+
+  // update nav buttons
+  prevBtn.disabled = current === 0;
+  nextBtn.disabled = current === total - 1;
+  metaEl.textContent =
+    selected[current] === null ? "No answer selected" : `Selected: ${q.options[selected[current]]}`;
+}
+
+function selectOption(idx) {
+  selected[current] = idx;
+
+  // update option buttons' classes and aria-pressed
+  const btns = optionsContainer.querySelectorAll(".optionBtn");
+  btns.forEach((btn) => {
+    const bi = Number(btn.dataset.index);
+    if (bi === idx) {
+      btn.classList.add("selected");
+      btn.setAttribute("aria-pressed", "true");
+    } else {
+      btn.classList.remove("selected");
+      btn.setAttribute("aria-pressed", "false");
+    }
+  });
+
+  metaEl.textContent = `Selected: ${quizQuestions[current].options[idx]}`;
+}
+
+// Navigation handlers
+prevBtn.addEventListener("click", () => {
+  if (current > 0) {
+    current--;
+    renderQuestion();
+  }
+});
+//next button event listener for moving to the next question
+nextBtn.addEventListener("click", () => {
+  if (current < total - 1) {
+    current++;
+    renderQuestion();
+  }
+});
+
+// Keyboard shortcuts:
+// 1-4 to select options, ArrowLeft/ArrowRight to navigate, Enter to move next (when not focused on an option)
+window.addEventListener("keydown", (e) => {
+  // If focus is inside an input-like element, allow normal behavior
+  const tag = document.activeElement && document.activeElement.tagName;
+  if (tag === "INPUT" || tag === "TEXTAREA") return;
+
+  if (e.key >= "1" && e.key <= "4") { // Number keys 1-4 to select option
+    const index = Number(e.key) - 1;
+    // only select if option exists
+    if (quizQuestions[current].options[index] !== undefined) {
+      selectOption(index);
+    }
+  } else if (e.key === "ArrowLeft") {// Move left to select option 
+    if (current > 0) {
+      current--;
+      renderQuestion();
+      // move focus to the first option for convenience
+      focusFirstOption();
+    }
+  } else if (e.key === "ArrowRight") {// Move right to select option
+    if (current < total - 1) {
+      current++;
+      renderQuestion();
+      focusFirstOption();
+    }
+  } else if (e.key === "Enter") {//
+    const active = document.activeElement;
+    if (!active || !active.classList.contains("optionBtn")) { // if not focused on an option
+      // move to next question if possible
+      if (current < total - 1) { // only if not last question
+        current++;
+        renderQuestion(); // render next question
+        focusFirstOption(); // focus first option
+      }
+    }
+  }
+});
+// focus the first option button
+function focusFirstOption() {
+  const first = optionsContainer.querySelector(".optionBtn");
+  if (first) first.focus();
+}
+
+// Initial setup and render (prepare a preview of the first question without opening the quiz)
+setupQuiz();
+renderQuestion();
+
+// --- UI wiring for showing/hiding quiz and showing results (JS-managed, no Bootstrap modal) ---
+const quizWindow = document.getElementById("quizWindow");
+const startBtn = document.getElementById("startBtn");
+const submitBtn = document.getElementById("submitQuizBtn");
+const retryBtn = document.getElementById("retryBtn");
+const resultsSection = document.getElementById("results-section");
+const scoreEl = document.getElementById("score");
+const correctEl = document.getElementById("correct-answers");
+const wrongEl = document.getElementById("wrong-answers");
+
+// Show quiz window and hide results
+function showQuiz() {
+  if (resultsSection) resultsSection.classList.add("hidden");
+  if (quizWindow) {
+    quizWindow.classList.remove("hidden");
+    quizWindow.setAttribute("aria-hidden", "false");
+  }
+  // reset state for a fresh attempt (pick new random subset and clear selections)
+  setupQuiz();
+  renderQuestion();
+  focusFirstOption();
+}
+
+function hideQuiz() {
+  if (quizWindow) {
+    quizWindow.classList.add("hidden");
+    quizWindow.setAttribute("aria-hidden", "true");
+  }
+}
+
+function showResults() {
+  if (resultsSection) {
+    resultsSection.classList.remove("hidden");
+    resultsSection.scrollIntoView({ behavior: "smooth" });
+  }
+}
+
+function computeResults() {
+  let correct = 0;
+  let wrong = 0;
+  for (let i = 0; i < total; i++) {
+    if (selected[i] === null) continue;
+    if (quizQuestions[i].answer !== undefined && selected[i] === quizQuestions[i].answer) correct++;
+    else wrong++;
+  }
+  const score = correct; // 1 point per correct answer
+  if (scoreEl) scoreEl.textContent = score;
+  if (correctEl) correctEl.textContent = correct;
+  if (wrongEl) wrongEl.textContent = wrong;
+
+  // Build a per-question detailed results view
+  const detailed = document.getElementById("detailed-results");
+  if (detailed) {
+    detailed.innerHTML = "";
+    quizQuestions.forEach((q, i) => {
+      const item = document.createElement("div");
+      item.className = "result-item card p-2 mb-2";
+
+      const qTitle = document.createElement("div");
+      qTitle.className = "result-question fw-semibold";
+      qTitle.textContent = `${i + 1}. ${q.text}`;
+      item.appendChild(qTitle);
+
+      const optsWrap = document.createElement("div");
+      optsWrap.className = "result-options d-grid";
+      q.options.forEach((optText, oi) => {
+        const opt = document.createElement("div");
+        opt.className = "result-option p-2";
+        opt.textContent = optText;
+        if (oi === q.answer) opt.classList.add("correct");
+        if (selected[i] !== null && oi === selected[i] && selected[i] !== q.answer) opt.classList.add("wrong-selected");
+        // label the user's choice
+        if (selected[i] !== null && oi === selected[i]) {
+          const badge = document.createElement("span");
+          badge.className = "ms-2 small text-muted";
+          badge.textContent = " (your choice)";
+          opt.appendChild(badge);
+        }
+        optsWrap.appendChild(opt);
+      });
+      item.appendChild(optsWrap);
+      detailed.appendChild(item);
+    });
+  }
+}
+
+if (startBtn) startBtn.addEventListener("click", showQuiz);
+if (submitBtn)
+  submitBtn.addEventListener("click", () => {
+    computeResults();
+    hideQuiz();
+    showResults();
+  });
+if (retryBtn) retryBtn.addEventListener("click", showQuiz);
+
+// keep small keyboard nicety: Escape when quiz open closes it and shows results
+window.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" && quizWindow && !quizWindow.classList.contains("hidden")) {
+    computeResults();
+    hideQuiz();
+    showResults();
+  }
+});

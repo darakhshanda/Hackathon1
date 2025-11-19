@@ -1,14 +1,14 @@
 /** ::before and ::after: those pseudo-elements can also affect layout, so including them ensures they follow the same sizing rules.
 Placement: putting these rules at the top of style.css (before your @imports) ensures imported styles inherit border-box by default.
 override for different behavior: per-element, e.g. input { box-sizing: content-box; }.**/
-
 :root {
- --primary-color: #3498db;
-    --secondary-color: #2ecc71;
+ 
     --font-family: Arial, sans-serif;
     --font-size-base: 16px;
     --line-height-base: 1.5;
     --background-color: #f4f4f4;
+    --primary-color: #3498db;
+    --secondary-color: #2ecc71;
   box-sizing: border-box;
 }
 
@@ -46,8 +46,8 @@ footer {
     text-align: center;
     padding: 1em 0;
     background-color: var(--primary-color);
-    color: #021d7462;
-    position: fixed;
+    color: var(--background-color);
+    position: relative;
     width: 100%;
     bottom: 0;
 }
