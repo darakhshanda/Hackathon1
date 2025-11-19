@@ -1,3 +1,8 @@
+@import url(/assets/css/dr.css);
+@import url(/assets/css/ds.css);
+@import url(/assets/css/gc.css);
+@import url(/assets/css/jc.css);
+
 /** ::before and ::after: those pseudo-elements can also affect layout, so including them ensures they follow the same sizing rules.
 Placement: putting these rules at the top of style.css (before your @imports) ensures imported styles inherit border-box by default.
 override for different behavior: per-element, e.g. input { box-sizing: content-box; }.**/
@@ -14,10 +19,6 @@ override for different behavior: per-element, e.g. input { box-sizing: content-b
 
 *, *::before, *::after { box-sizing: inherit; }
 
-@import url(/assets/css/dr.css);
-@import url(/assets/css/ds.css);
-@import url(/assets/css/gc.css);
-@import url(/assets/css/jc.css);
 
 body {
     font-family: var(--font-family);

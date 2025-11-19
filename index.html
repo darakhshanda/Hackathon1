@@ -84,8 +84,8 @@
                 <div id="questionsSelectContainer" class="col-md-12 text-center mb-3">
                     <label for="questionsSelect" class="form-label">Questions</label>
                     <select id="questionsSelect" class="form-select w-auto d-inline-block">
-                        <option value="5">5</option>
-                        <option value="10" selected>10</option>
+                        <option value="5" selected>5</option>
+                        <option value="10">10</option>
                         <option value="15">15</option>
                     </select>
                 </div>
@@ -95,9 +95,9 @@
             <button id="startBtn" type="button" class="btn btn-primary btn-lg">Start Game</button>
         </section>
         <!-- Quiz Window (managed by JS, not Bootstrap modal) -->
-        <div id="quizWindow" class="quiz-window hidden" aria-hidden="true" role="dialog"
+        <div id="quizWindow" class="quizWindow hidden" aria-hidden="true" role="dialog"
             aria-labelledby="staticBackdropLabel">
-            <div class="quiz-panel card">
+            <div class="quizPanel card">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="staticBackdropLabel">Select your Answers</h1>
                 </div>
@@ -113,8 +113,8 @@
                             </div>
 
                             <div class="controls" role="group" aria-label="Question navigation">
-                                <button id="prev" class="nav-btn" type="button">Previous</button>
-                                <button id="next" class="nav-btn" type="button">Next</button>
+                                <button id="prev" class="navBtn" type="button">Previous</button>
+                                <button id="next" class="navBtn" type="button">Next</button>
                             </div>
 
                             <div id="meta" class="meta" aria-live="polite">No answer selected</div>
@@ -124,24 +124,25 @@
                 </div>
                 <div class="text-center mb-4">
                     <button type="button" class="btn btn-primary">Pause</button>
-                    <button id="submit-quiz-btn" type="button" class="btn btn-primary">Submit Quiz</button>
+                    <button id="submitQuizBtn" type="button" class="btn btn-primary">Submit Quiz</button>
                 </div>
             </div>
         </div>
 
         <!-- Results Section -->
 
-        <section id="results-section" class="hidden">
-            <div class="container text-center mt-5">
-                <div id="results" class="col-md-4">
+        <section id="resultsSection" class="hidden mt-5 fs-5" aria-hidden="true">
+            <div class="container text-center ">
+                <div id="results" class="col-md-12 text-center mb-3">
                     <h4>Results</h4>
                     <div class="mb-3 box">
                         <p>Score: <span id="score">0</span></p>
-                        <p>Correct Answers: <span id="correct-answers">0</span></p>
-                        <p>Wrong Answers: <span id="wrong-answers">0</span></p>
-                        <button id="retry-btn" type="button" class="btn btn-primary btn-lg">Retry</button>
+                        <p>Correct Answers: <span id="correctAnswers">0</span></p>
+                        <p>Wrong Answers: <span id="wrongAnswers">0</span></p>
+                        <button id="retryBtn" type="button" class="btn btn-primary btn-lg">Retry</button>
+                        <button id="reviewBtn" type="button" class="btn btn-primary btn-lg">Review Answers</button>
                     </div>
-                    <div id="detailed-results" class="detailed-results mt-3"></div>
+                    <div id="detailedResults" class="mt-3"></div>
                 </div>
             </div>
         </section>

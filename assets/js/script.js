@@ -490,10 +490,10 @@ const quizWindow = document.getElementById("quizWindow");
 const startBtn = document.getElementById("startBtn");
 const submitBtn = document.getElementById("submitQuizBtn");
 const retryBtn = document.getElementById("retryBtn");
-const resultsSection = document.getElementById("results-section");
+const resultsSection = document.getElementById("resultsSection");
 const scoreEl = document.getElementById("score");
-const correctEl = document.getElementById("correct-answers");
-const wrongEl = document.getElementById("wrong-answers");
+const correctEl = document.getElementById("correctAnswers");
+const wrongEl = document.getElementById("wrongAnswers");
 
 // Show quiz window and hide results
 function showQuiz() {
@@ -525,37 +525,43 @@ function showResults() {
 function computeResults() {
   let correct = 0;
   let wrong = 0;
+  
+
   for (let i = 0; i < total; i++) {
     if (selected[i] === null) continue;
     if (quizQuestions[i].answer !== undefined && selected[i] === quizQuestions[i].answer) correct++;
     else wrong++;
   }
   const score = correct; // 1 point per correct answer
-  if (scoreEl) scoreEl.textContent = score;
-  if (correctEl) correctEl.textContent = correct;
-  if (wrongEl) wrongEl.textContent = wrong;
-
+  if (scoreEl) scoreEl.textContent = `Score: ${score}/${total}`;
+  if (correctEl) correctEl.textContent = `Correct Answers: ${correct}`;
+  if (wrongEl) wrongEl.textContent = `Wrong Answers: ${wrong}`;
+  let unanswered = total - correct - wrong;
+  
+ 
+}
+function showReview() {
   // Build a per-question detailed results view
-  const detailed = document.getElementById("detailed-results");
+  const detailed = document.getElementById("detailedResults");
   if (detailed) {
     detailed.innerHTML = "";
     quizQuestions.forEach((q, i) => {
       const item = document.createElement("div");
-      item.className = "result-item card p-2 mb-2";
+      item.className = "resultItem card p-2 mb-2";
 
       const qTitle = document.createElement("div");
-      qTitle.className = "result-question fw-semibold";
+      qTitle.className = "resultQuestion fw-semibold";
       qTitle.textContent = `${i + 1}. ${q.text}`;
       item.appendChild(qTitle);
 
       const optsWrap = document.createElement("div");
-      optsWrap.className = "result-options d-grid";
+      optsWrap.className = "resultOptions d-grid";
       q.options.forEach((optText, oi) => {
         const opt = document.createElement("div");
-        opt.className = "result-option p-2";
+        opt.className = "resultOption p-2";
         opt.textContent = optText;
         if (oi === q.answer) opt.classList.add("correct");
-        if (selected[i] !== null && oi === selected[i] && selected[i] !== q.answer) opt.classList.add("wrong-selected");
+        if (selected[i] !== null && oi === selected[i] && selected[i] !== q.answer) opt.classList.add("wrongSelected");
         // label the user's choice
         if (selected[i] !== null && oi === selected[i]) {
           const badge = document.createElement("span");
@@ -570,6 +576,10 @@ function computeResults() {
     });
   }
 }
+function noReview(){
+  const detailed = document.getElementById("detailedResults");
+  detailed.innerHTML="";
+}
 
 if (startBtn) startBtn.addEventListener("click", showQuiz);
 if (submitBtn)
@@ -578,13 +588,17 @@ if (submitBtn)
     hideQuiz();
     showResults();
   });
+ 
+if (reviewBtn) reviewBtn.addEventListener("click", showReview);
 if (retryBtn) retryBtn.addEventListener("click", showQuiz);
 
 // keep small keyboard nicety: Escape when quiz open closes it and shows results
 window.addEventListener("keydown", (e) => {
   if (e.key === "Escape" && quizWindow && !quizWindow.classList.contains("hidden")) {
+    window.alert("Quiz not Submitted!");
     computeResults();
     hideQuiz();
     showResults();
-  }
+   if (reviewBtn) reviewBtn.addEventListener("click", noReview);
+   }
 });
