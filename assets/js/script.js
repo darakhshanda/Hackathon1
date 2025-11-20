@@ -136,16 +136,16 @@ function renderQuestion() {
         selectOption(idx);
       }
     });
-
+// append to container
     optionsContainer.appendChild(btn);
   });
-
+//selected[current] 
   // update nav buttons
   prevBtn.disabled = current === 0;
   nextBtn.disabled = current === total - 1;
   if (metaEl) metaEl.textContent = selected[current] === null ? "No answer selected" : `Selected: ${q.options[selected[current]]}`;
 }
-
+// handle option selection
 function selectOption(idx) {
   selected[current] = idx;
 
@@ -161,8 +161,8 @@ function selectOption(idx) {
       btn.setAttribute("aria-pressed", "false");
     }
   });
-
-  metaEl.textContent = `Selected: ${quizQuestions[current].options[idx]}`;
+  // update meta/status
+  if (metaEl) metaEl.textContent = `Selected: ${quizQuestions[current].options[idx]}`;
 }
 
 // Navigation handlers
@@ -174,7 +174,12 @@ prevBtn.addEventListener("click", () => {
 });
 //next button event listener for moving to the next question
 nextBtn.addEventListener("click", () => {
+  // prevent advancing if current question has no selected answer
   if (current < total - 1) {
+    if (selected[current] === null) {
+      alert("Please select an option before proceeding.");
+      return;
+    }
     current++;
     renderQuestion();
   }
@@ -205,6 +210,10 @@ window.addEventListener("keydown", (e) => {
     }
   } else if (e.key === "ArrowRight") {// Move right to select option
     if (current < total - 1) {
+      if (selected[current] === null) {
+        alert("Please select an option before proceeding.");
+        return;
+      }
       current++;
       renderQuestion();
       focusFirstOption();
@@ -214,6 +223,10 @@ window.addEventListener("keydown", (e) => {
     if (!active || !active.classList.contains("optionBtn")) { // if not focused on an option
       // move to next question if possible
       if (current < total - 1) { // only if not last question
+        if (selected[current] === null) {
+          alert("Please select an option before proceeding.");
+          return;
+        }
         current++;
         renderQuestion(); // render next question
         focusFirstOption(); // focus first option
