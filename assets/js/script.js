@@ -389,7 +389,7 @@ async function startWithUsername() {
   await showQuiz();
 }
 
-if (usernameButton) usernameButton.addEventListener("click", startWithUsername);
+//if (usernameButton) usernameButton.addEventListener("click", startWithUsername);
 const usernameInputEl = document.getElementById("usernameInput");
 if (usernameInputEl) {
   usernameInputEl.addEventListener("keydown", (e) => {

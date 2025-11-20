@@ -123,11 +123,15 @@ header {
    margin-top: 8px; 
   }
 .resultOption { 
+   background-color: var(--primary-color);
+    color: var(--secondary-color);
   border: 1px solid var(--primary-color); 
   border-radius: 8px; 
   background: var(--background-color); 
 }
 .resultOption.correct {
+   background-color: var(--primary-color);
+    color: var(--secondary-color);
    background: var(--background-color); 
    border-color: #28a745; }
 .resultOption.wrongSelected { 
@@ -136,6 +140,8 @@ header {
 }
 /* code for style.css*/
 .input-group {
+   background-color: var(--primary-color);
+    color: var(--secondary-color);
     max-width: 400px;
     margin: 0 auto 20px auto;
     
@@ -143,5 +149,5 @@ header {
   }
 #usernameButton {
       background-color: var(--primary-color);
-    color: var(--background-color);
+    color: var(--secondary-color);
   }
