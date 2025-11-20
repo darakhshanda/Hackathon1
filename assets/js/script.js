@@ -1,311 +1,7 @@
-// Quiz data and logic for a Kahoot-style 5-question layout.
-// No color styles added; only structure, behavior and minimal visual cues.
-
-const questions = [
- 
-  {
-    "text": "What does Ambitious mean",
-    "options": [
-      "To be very old",
-      "Having a strong desire to achieve success",
-      "To leave quickly",
-      "Hopeful and confident about the future"
-    ],
-    "answer": 1
-  },
-  {
-    "text": "What does Benevolent mean",
-    "options": [
-      "Kind and generous",
-      "Very cheerful",
-      "Expressed clearly, easy to understand",
-      "Strong and healthy"
-    ],
-    "answer": 0
-  },
-  {
-    "text": "What does Candid mean",
-    "options": [
-      "Honest and open",
-      "Hopeful",
-      "Cheerful and friendly",
-      "Old-fashioned"
-    ],
-    "answer": 0
-  },
-  {
-    "text": "What does Diligent mean",
-    "options": [
-      "New or unusual",
-      "Very small",
-      "Showing careful and persistent effort",
-      "Eager or enthusiastic"
-    ],
-    "answer": 2
-  },
-  {
-    "text": "What does Efficient mean",
-    "options": [
-      "Careful with money",
-      "Working in a well-organized and productive way",
-      "Kind and generous",
-      "Expressed clearly"
-    ],
-    "answer": 1
-  },
-  {
-    "text": "What does Frugal mean",
-    "options": [
-      "Careful with money, avoiding waste",
-      "Very confused or puzzled",
-      "To abandon something",
-      "Cheerful and friendly"
-    ],
-    "answer": 0
-  },
-  {
-    "text": "What does Genuine mean",
-    "options": [
-      "Real and sincere, not fake",
-      "Strong and healthy",
-      "Showing attention to detail",
-      "Acting with care"
-    ],
-    "answer": 0
-  },
-  {
-    "text": "What does Hospitable mean",
-    "options": [
-      "Friendly and welcoming to guests",
-      "Next to something",
-      "Eager or enthusiastic",
-      "Honest and open"
-    ],
-    "answer": 0
-  },
-  {
-    "text": "What does Impartial mean",
-    "options": [
-      "Treating all rivals or disputants equally",
-      "Kind and generous",
-      "Cheerful and friendly",
-      "Difficult and tiring"
-    ],
-    "answer": 0
-  },
-  {
-    "text": "What does Jovial mean",
-    "options": [
-      "Showing careful effort",
-      "Cheerful and friendly",
-      "Careful with money",
-      "Calm and peaceful"
-    ],
-    "answer": 1
-  },
-  {
-    "text": "What does Keen mean",
-    "options": [
-      "Eager or enthusiastic",
-      "Strong and healthy",
-      "New or unusual",
-      "Expressed clearly"
-    ],
-    "answer": 0
-  },
-  {
-    "text": "What does Lucid mean",
-    "options": [
-      "Expressed clearly, easy to understand",
-      "Kind and generous",
-      "Very confused",
-      "Acting with care"
-    ],
-    "answer": 0
-  },
-  {
-    "text": "What does Meticulous mean",
-    "options": [
-      "Showing attention to detail",
-      "Friendly and welcoming",
-      "Strong and healthy",
-      "Cheerful and friendly"
-    ],
-    "answer": 0
-  },
-  {
-    "text": "What does Novel mean",
-    "options": [
-      "New or unusual in an interesting way",
-      "Strong and healthy",
-      "Careful with money",
-      "Expressed clearly"
-    ],
-    "answer": 0
-  },
-  {
-    "text": "What does Optimistic mean",
-    "options": [
-      "Hopeful and confident about the future",
-      "Kind and generous",
-      "Honest and open",
-      "Friendly and welcoming"
-    ],
-    "answer": 0
-  },
-  {
-    "text": "What does Prudent mean",
-    "options": [
-      "Acting with care and thought for the future",
-      "Cheerful and friendly",
-      "Very confused",
-      "Strong and healthy"
-    ],
-    "answer": 0
-  },
-  {
-    "text": "What does Quaint mean",
-    "options": [
-      "Attractively unusual or old-fashioned",
-      "Very small",
-      "Acting with care",
-      "Kind and generous"
-    ],
-    "answer": 0
-  },
-  {
-    "text": "What does Robust mean",
-    "options": [
-      "Strong and healthy",
-      "New or unusual",
-      "Eager or enthusiastic",
-      "Very confused"
-    ],
-    "answer": 0
-  },
-  {
-    "text": "What does Serene mean",
-    "options": [
-      "Calm, peaceful, and untroubled",
-      "Expressed clearly",
-      "Kind and generous",
-      "Strong and healthy"
-    ],
-    "answer": 0
-  },
-  {
-    "text": "What does Tenacious mean",
-    "options": [
-      "Tending to keep a firm hold of something",
-      "Friendly and welcoming",
-      "Cheerful and friendly",
-      "Working in a productive way"
-    ],
-    "answer": 0
-  },
-   {
-    text: "What does abandon mean?",
-    options: [
-      "To finish something quickly",
-      "To leave something or someone behind permanently",
-      "To repair something old",
-      "To make new friends"
-    ],
-    answer: 1
-  },
-  {
-    text: "What does abbreviate mean?",
-    options: [
-      "To make bigger",
-      "To shorten a word or phrase",
-      "To explain in detail",
-      "To argue with someone"
-    ],
-    answer: 1
-  },
-  {
-    text: "What does abduct mean?",
-    options: [
-      "To take someone away illegally",
-      "To clean something gently",
-      "To give someone a gift",
-      "To try something new"
-    ],
-    answer: 0
-  },
-  {
-    text: "What does abrasive mean?",
-    options: [
-      "Soft and smooth in manner",
-      "Rough or harsh in manner or texture",
-      "Full of color",
-      "Calm and relaxed"
-    ],
-    answer: 1
-  },
-  {
-    text: "What does abundant mean?",
-    options: [
-      "Not enough of something",
-      "Present in great quantity, more than enough",
-      "Very old and broken",
-      "Full of mystery"
-    ],
-    answer: 1
-  },
-  {
-    text: "What does accessible mean?",
-    options: [
-      "Able to be reached or entered easily",
-      "Difficult to find",
-      "Very large",
-      "Not useful"
-    ],
-    answer: 0
-  },
-  {
-    text: "What does accommodate mean?",
-    options: [
-      "To provide space or meet needs",
-      "To forget about something",
-      "To draw a picture",
-      "To read a book"
-    ],
-    answer: 0
-  },
-  {
-    text: "What does accompany mean?",
-    options: [
-      "To run rapidly",
-      "To go somewhere with another person",
-      "To sleep deeply",
-      "To eat a lot"
-    ],
-    answer: 1
-  },
-  {
-    text: "What does accomplish mean?",
-    options: [
-      "To lose something important",
-      "To succeed in doing something",
-      "To buy a new car",
-      "To teach a class"
-    ],
-    answer: 1
-  },
-  {
-    text: "What does accurate mean?",
-    options: [
-      "Full of mistakes",
-      "Very slow",
-      "Free from error, correct",
-      "Easy to break"
-    ],
-    answer: 2
-  },
-];
 
 // `questions` is the full bank. `quizQuestions` is the current randomized subset for a run.
+
+let questions = []; // placeholder for hard difficulty questions
 let quizQuestions = [];
 let total = 0;
 let current = 0;
@@ -322,6 +18,40 @@ const nextBtn = document.getElementById("next");
 const metaEl = document.getElementById("meta");
 // quiz main container for accessibility
 const quizMain = document.getElementById("quiz");
+let username = localStorage.getItem("username");
+const usernameButton = document.getElementById("usernameButton");
+
+// import question data from JSON file based on selected difficulty
+
+async function getData() {
+  try {
+    const questionsBank = await fetch("./assets/json/questions.json");
+    const data = await questionsBank.json();
+
+    console.log(data);
+    // safely read the difficulty control value (supports either id or querySelector)
+    const diffEl = document.getElementById("difficultySelect") || document.querySelector("#difficultySelect");
+    let difficulty = diffEl && diffEl.value ? diffEl.value.toString().toLowerCase() : "easy";
+
+    // map to available banks (fall back to easy if unknown)
+    if (difficulty === "easy") {
+      questions = data["easy"] || [];
+    } else if (difficulty === "medium") {
+      questions = data["medium"] || [];
+    } else if (difficulty === "hard") {
+      questions = data["hard"] || [];
+    } else {
+      questions = data["easy"] || [];
+    }
+
+    console.log("Loaded questions for difficulty:", difficulty, "count:", questions.length);
+  } catch (e) {
+    console.log(e.message);
+    
+  }
+}
+
+
 // --- Helpers for picking and shuffling questions/options ---
 // Fisher-Yates shuffle
 function shuffleArray(array) {
@@ -352,6 +82,9 @@ function pickRandomQuestions(bank, n) {
 function setupQuiz(count) {
   const sel = document.getElementById("questionsSelect");
   const desired = Number(sel?.value) || count || 5;
+  //change question bank based on difficulty selection
+  let difficulty = document.getElementById("difficultySelect")?.value;
+  // assume `questions` already populated by getData(); do not fetch here
   quizQuestions = pickRandomQuestions(questions, desired);
   total = quizQuestions.length;
   current = 0;
@@ -360,11 +93,20 @@ function setupQuiz(count) {
 // render current question to DOM
 function renderQuestion() {
   const q = quizQuestions[current]; // current question object
-  questionEl.textContent = q.text; // set question text
-  progressEl.textContent = `Question ${current + 1} / ${total}`; // update progress
+  if (!q) {
+    if (questionEl) questionEl.textContent = "No questions loaded";
+    if (progressEl) progressEl.textContent = "";
+    if (optionsContainer) optionsContainer.innerHTML = "";
+    if (prevBtn) prevBtn.disabled = true;
+    if (nextBtn) nextBtn.disabled = true;
+    return;
+  }
+
+  if (questionEl) questionEl.textContent = q.text; // set question text
+  if (progressEl) progressEl.textContent = `Question ${current + 1} / ${total}`; // update progress
 
   // Accessibility: provide a descriptive label for the quiz container
-  quizMain.setAttribute("aria-label", `Question ${current + 1}: ${q.text}`); // + question text
+  if (quizMain) quizMain.setAttribute("aria-label", `Question ${current + 1}: ${q.text}`); // + question text
 
   // clear options
   optionsContainer.innerHTML = "";
@@ -399,8 +141,7 @@ function renderQuestion() {
   // update nav buttons
   prevBtn.disabled = current === 0;
   nextBtn.disabled = current === total - 1;
-  metaEl.textContent =
-    selected[current] === null ? "No answer selected" : `Selected: ${q.options[selected[current]]}`;
+  if (metaEl) metaEl.textContent = selected[current] === null ? "No answer selected" : `Selected: ${q.options[selected[current]]}`;
 }
 
 function selectOption(idx) {
@@ -482,26 +223,36 @@ function focusFirstOption() {
 }
 
 // Initial setup and render (prepare a preview of the first question without opening the quiz)
-setupQuiz();
-renderQuestion();
+(async function init() {
+  await getData();
+  setupQuiz();
+  renderQuestion();
+})();
 
 // --- UI wiring for showing/hiding quiz and showing results (JS-managed, no Bootstrap modal) ---
 const quizWindow = document.getElementById("quizWindow");
 const startBtn = document.getElementById("startBtn");
 const submitBtn = document.getElementById("submitQuizBtn");
 const retryBtn = document.getElementById("retryBtn");
+const reviewBtn = document.getElementById("reviewBtn");
 const resultsSection = document.getElementById("resultsSection");
 const scoreEl = document.getElementById("score");
 const correctEl = document.getElementById("correctAnswers");
 const wrongEl = document.getElementById("wrongAnswers");
 
 // Show quiz window and hide results
-function showQuiz() {
+async function showQuiz() {
   if (resultsSection) resultsSection.classList.add("hidden");
   if (quizWindow) {
     quizWindow.classList.remove("hidden");
     quizWindow.setAttribute("aria-hidden", "false");
   }
+  if (localStorage.getItem("username") === null || localStorage.getItem("username") === "") {
+    alert("Please enter a username before starting the quiz.");
+    return;
+  }
+  // ensure we have the right bank for the selected difficulty
+  await getData();
   // reset state for a fresh attempt (pick new random subset and clear selections)
   setupQuiz();
   renderQuestion();
@@ -533,9 +284,9 @@ function computeResults() {
     else wrong++;
   }
   const score = correct; // 1 point per correct answer
-  if (scoreEl) scoreEl.textContent = `Score: ${score}/${total}`;
-  if (correctEl) correctEl.textContent = `Correct Answers: ${correct}`;
-  if (wrongEl) wrongEl.textContent = `Wrong Answers: ${wrong}`;
+  if (scoreEl) scoreEl.textContent = `${localStorage.getItem("username")}'s score: ${score}/${total}`;
+  if (correctEl) correctEl.textContent = ` ${correct}`;
+  if (wrongEl) wrongEl.textContent = `${wrong}`;
   let unanswered = total - correct - wrong;
   
  
@@ -576,12 +327,47 @@ function showReview() {
     });
   }
 }
-function noReview(){
-  const detailed = document.getElementById("detailedResults");
-  detailed.innerHTML="";
+
+if (startBtn) startBtn.addEventListener("click", startWithUsername);
+// Start the quiz once a valid username has been entered (button or Enter)
+async function startWithUsername() {
+  const usernameInputEl = document.getElementById("usernameInput");
+  if (!usernameInputEl) return;
+  const usernameInput = usernameInputEl.value.trim();
+  if (!usernameInput) {
+    alert("Please enter a username to start the game.");
+    usernameInputEl.focus();
+    return;
+  }
+
+  localStorage.setItem("username", usernameInput);
+  usernameInputEl.value = "";
+
+  // Begin quiz flow
+  await showQuiz();
 }
 
-if (startBtn) startBtn.addEventListener("click", showQuiz);
+if (usernameButton) usernameButton.addEventListener("click", startWithUsername);
+const usernameInputEl = document.getElementById("usernameInput");
+if (usernameInputEl) {
+  usernameInputEl.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+      startWithUsername();
+    }
+  });
+}
+ 
+// If difficulty select exists, reload bank when user changes difficulty
+const diffSelect = document.getElementById("difficultySelect");
+if (diffSelect) {
+  diffSelect.addEventListener("change", async () => {
+    await getData();
+    setupQuiz();
+    renderQuestion();
+  });
+}
+
+
 if (submitBtn)
   submitBtn.addEventListener("click", () => {
     computeResults();
@@ -591,17 +377,19 @@ if (submitBtn)
  
 if (reviewBtn) reviewBtn.addEventListener("click", showReview);
 if (retryBtn) retryBtn.addEventListener("click", showQuiz);
-
 // keep small keyboard nicety: Escape when quiz open closes it and shows results
 window.addEventListener("keydown", (e) => {
   if (e.key === "Escape" && quizWindow && !quizWindow.classList.contains("hidden")) {
     window.alert("Quiz not Submitted!");
+   reviewBtn.disabled = true;
+   document.getElementById("detailedResults").innerHTML = "";
     computeResults();
     hideQuiz();
     showResults();
-   if (reviewBtn) reviewBtn.addEventListener("click", noReview);
-   }
+  
+  }
 });
+
 
 
 // Word of the Day feature

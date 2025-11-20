@@ -134,3 +134,14 @@ header {
    background: var(--background-color); 
    border-color: #dc3545; 
 }
+/* code for style.css*/
+.input-group {
+    max-width: 400px;
+    margin: 0 auto 20px auto;
+    
+    
+  }
+#usernameButton {
+      background-color: var(--primary-color);
+    color: var(--background-color);
+  }
