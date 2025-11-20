@@ -428,6 +428,20 @@ if (submitBtn)
     // resume/unpause before computing results to ensure consistent state
     setPausedState(false);
     computeResults();
+    // disable Review button when no questions were answered
+    try {
+      const answeredCount = Array.isArray(selected) ? selected.filter((s) => s !== null).length : 0;
+      if (reviewBtn) reviewBtn.disabled = answeredCount === 0;
+      if (answeredCount === 0) {
+        // optional UX hint: let user know review is disabled
+        // (silent is also acceptable; change alert to nothing if preferred)
+        alert("You didn't answer any questions. Review is disabled.");
+      }
+    } catch (err) {
+      // fail safe: don't block submit flow on unexpected errors
+      console.error('Error while checking answers count:', err);
+    }
+
     hideQuiz();
     showResults();
   });
