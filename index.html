@@ -63,12 +63,12 @@
         <div class="modal fade" id="instructions-modal" tabindex="-1" aria-labelledby="instructions-modal-label"
           aria-hidden="true">
           <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
+            <div class="modal-content modal-content-jc">
               <div class="modal-header">
                 <h1 class="modal-title fs-5" id="instructions-modal-label">
                   How to Play
                 </h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                
               </div>
               <div class="modal-body">
                 <p>
@@ -85,7 +85,7 @@
                 </p>
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-jc" data-bs-dismiss="modal">
+                <button type="button" class="btn btn-close-jc" data-bs-dismiss="modal">
                   Close
                 </button>
               </div>
@@ -95,16 +95,16 @@
       </div>
     </section>
     <!-- Options Section   -->
-    <section id="optionsSection" class="container text-center mb-3 mt-3">
+    <section id="optionsSection" class="container text-center mb-3 mt-3 ">
       <div class="row">
-        <div class="input-group mb-3">
+        <div class="input-group mb-3 options-jc rounded-3 mx-auto">
           <input id="usernameInput" type="text" class="form-control" placeholder="Enter a username"
             aria-label="Create Username" aria-describedby="usernameButton" required />
-          <button class="btn btn-outline-secondary" type="button" id="usernameButton">
+          <!-- <button class="btn btn-outline-secondary" type="button" id="usernameButton">
             Username
-          </button>
+          </button> -->
         </div>
-        <div id="difficultyLevel" class="col-md-12 text-center mb-3">
+        <div id="difficultyLevel" class="col-md-12 text-center mb-3 options-jc rounded-3 mx-auto">
           <label for="difficultySelect" class="form-label">Difficulty level</label>
           <select id="difficultySelect" class="form-select w-auto d-inline-block">
             <option value="easy">Easy</option>
@@ -112,7 +112,7 @@
             <option value="hard">Hard</option>
           </select>
         </div>
-        <div id="questionsSelectContainer" class="col-md-12 text-center mb-3 questions-jc rounded-3 mx-auto">
+        <div id="questionsSelectContainer" class="col-md-12 text-center mb-3 options-jc rounded-3 mx-auto">
           <label for="questionsSelect" class="form-label">Questions</label>
           <select id="questionsSelect" class="form-select w-auto d-inline-block">
             <option value="5" selected>5</option>
@@ -253,7 +253,7 @@
 
 </html>
 
-<style>
+<!-- <style>
   /* Make the Difficulty control visually match the Questions control */
   #difficultyLevel {
     display: inline-flex;
@@ -311,4 +311,4 @@
     background-color: var(--primary-color);
     color: var(--secondary-color);
   }
-</style>
+</style> -->

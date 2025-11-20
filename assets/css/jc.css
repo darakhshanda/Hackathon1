@@ -31,15 +31,11 @@
     border: 2px solid var(--secondary-color-highlight);
 }
 
-
 .btn-info-jc {
     background-color: var(--secondary-color);
     color: var(--primary-color);
     border: 2px solid var(--secondary-color-highlight);
-    /* width: 300px;
-    height: 100px;
-    font-weight: bold;
-    font-size: 1.25rem; */
+ 
 }
 
 .btn-info-jc:hover {
@@ -54,7 +50,6 @@
     border: 2px solid var(--primary-color-highlight);
 }
 
-
 /* Card Styles for About WordQuest Section */
 
 .card-jc {
@@ -64,9 +59,73 @@
     padding: 1rem;
 }
 
-/* Questions Select Styles */
+/* Modal Styles */
 
-.questions-jc {
+.modal-content-jc {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border: 2px solid var(--primary-color-highlight);
+}
+.btn-close-jc {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    border: 2px solid var(--secondary-color-highlight);
+}
+
+.btn-close-jc:hover {
+    background-color: black;
+    color: var(--secondary-color);
+    border: 2px solid var(--primary-color-highlight);
+}
+
+.btn-close-jc:focus-visible {
+    background-color: black;
+    color: var(--secondary-color);
+    border: 2px solid var(--primary-color-highlight);
+}
+
+/* Options Styles */
+
+#usernameInput {
+    background:transparent;
+    color: var(--secondary-color) !important;
+    border: none !important;
+}
+
+/* Style form placeholders (inputs / textareas) */
+#usernameInput::placeholder,
+.form-control::placeholder,
+textarea::placeholder {
+  color: var(--secondary-color);
+  opacity: 1;                      /* Override default opacity in some browsers */
+  font-style: italic;
+  font-weight: 500;
+}
+
+/* Vendor fallbacks for older browsers */
+#usernameInput::-webkit-input-placeholder,
+.form-control::-webkit-input-placeholder { color: var(--secondary-color); }
+#usernameInput:-ms-input-placeholder,
+.form-control:-ms-input-placeholder { color: var(--secondary-color); }
+#usernameInput::-ms-input-placeholder,
+.form-control::-ms-input-placeholder { color: var(--secondary-color); }
+/* Style "placeholder" option for selects.
+   To use, add a first option like:
+     <option value="" disabled selected hidden>Select...</option>
+*/
+.form-select option[disabled] {
+  color: var(--secondary-color);
+}
+
+/* If you want a visible select "placeholder" color for modern browsers,
+   target the select when its value is empty (requires the disabled option pattern) */
+.form-select:invalid {
+  color: var(--secondary-color);
+}
+
+
+
+.options-jc {
     background-color: var(--primary-color);
     color: var(--secondary-color);
     border: solid 2px var(--primary-color-highlight);
@@ -74,7 +133,7 @@
     border-radius: 0.5rem; /* fallback in case Bootstrap utilities are not present */
 }
 
-#questionsSelectContainer.questions-jc {
+#questionsSelectContainer.options-jc, #difficultyLevel.options-jc {
     /* Let Bootstrap `col-auto` control sizing; keep this minimal so Bootstrap utilities do the heavy lifting */
     display: inline-block;
     width: auto;
@@ -82,53 +141,60 @@
 }
 
 /* Keep label and select inline so the container fits tightly to them */
-#questionsSelectContainer.questions-jc .form-label,
-#questionsSelectContainer.questions-jc .form-select {
+#questionsSelectContainer.options-jc .form-label,
+#questionsSelectContainer.options-jc .form-select,
+#difficultyLevel.options-jc .form-label,
+#difficultyLevel.options-jc .form-select {
     display: inline-block;
     vertical-align: middle;
 }
 
 /* Style the select to visually match the page theme */
-#questionsSelectContainer.questions-jc .form-select {
+#questionsSelectContainer.options-jc .form-select,
+#difficultyLevel.options-jc .form-select {
     background-color: transparent; /* blend with container */
     color: var(--secondary-color);
-    border: 1px solid var(--primary-color-highlight);;
+    border: 1px solid var(--primary-color-highlight);
     height: auto;
     min-height: 2.1rem;
     border-radius: 0.35rem;
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%232596be' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
-        color: var(--secondary-color);
+    color: var(--secondary-color);
     appearance: none;
 }
 
 /* Focus state that complements primary highlight */
-#questionsSelectContainer.questions-jc .form-select:focus {
+#questionsSelectContainer.options-jc .form-select:focus,
+#difficultyLevel.options-jc .form-select:focus {
     outline: none;
     box-shadow: 0 0 0 0.2rem rgba(47, 169, 194, 0.18);
     border-color: var(--primary-color-highlight);
 }
 
 /* Try to style native option colors (limited browser support) */
-#questionsSelectContainer.questions-jc .form-select option {
+#questionsSelectContainer.options-jc .form-select option,
+#difficultyLevel.options-jc .form-select option {
     background-color: var(--primary-color);
     color: var(--secondary-color);
 }
 
 /* Small caret helper for modern browsers: place a subtle chevron on the right */
-#questionsSelectContainer.questions-jc {
+#questionsSelectContainer.options-jc,
+#difficultyLevel.options-jc {
     position: relative;
 }
 
-
 /* Ensure label spacing aligns with design */
-#questionsSelectContainer.questions-jc .form-label {
+#questionsSelectContainer.options-jc .form-label,
+#difficultyLevel.options-jc .form-label {
     margin-right: 0.4rem;
     font-weight: 600;
     color: var(--secondary-color);
 }
 
 /* Responsive sizing for Questions container to match button breakpoints */
-#questionsSelectContainer.questions-jc {
+#questionsSelectContainer.options-jc,
+#difficultyLevel.options-jc {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
@@ -136,3 +202,53 @@
     font-size: 0.95rem;
     padding: 0.25rem 0.6rem;
 }
+/* Make options section stack and center like mobile */
+#optionsSection,
+#optionsSection .row {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 1rem !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+/* Constrain each control to the mobile widths */
+#optionsSection .options-jc,
+#questionsSelectContainer.options-jc,
+#difficultyLevel.options-jc {
+    width: 100% !important;
+    max-width: 420px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0.5rem !important;
+    padding: 0.25rem 0.6rem !important;
+    border-radius: 0.5rem !important;
+    box-sizing: border-box !important;
+}
+
+/* Ensure selects/inputs match mobile sizing */
+#optionsSection .form-select,
+#optionsSection .form-control,
+#questionsSelectContainer.options-jc .form-select,
+#difficultyLevel.options-jc .form-select {
+    min-width: 140px !important;
+    max-width: 320px !important;
+    width: 100% !important;
+    padding: 0.45rem 0.6rem !important;
+    font-size: 1rem !important;
+    box-sizing: border-box !important;
+}
+
+/* Labels inline with selects (mobile style) */
+#questionsSelectContainer.options-jc .form-label,
+#difficultyLevel.options-jc .form-label {
+    display: inline-block !important;
+    margin-right: 0.4rem !important;
+    font-weight: 600 !important;
+    color: var(--secondary-color) !important;
+}
+
+
