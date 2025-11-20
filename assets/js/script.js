@@ -19,6 +19,9 @@ const metaEl = document.getElementById("meta");
 const quizMain = document.getElementById("quiz");
 let username = localStorage.getItem("username");
 const usernameButton = document.getElementById("usernameButton");
+// pause button and state
+const pauseBtn = document.getElementById("pauseBtn");
+let isPaused = false;
 
 // import question data from JSON file based on selected difficulty
 
@@ -184,6 +187,9 @@ window.addEventListener("keydown", (e) => {
   const tag = document.activeElement && document.activeElement.tagName;
   if (tag === "INPUT" || tag === "TEXTAREA") return;
 
+  // if quiz is paused, ignore global shortcuts
+  if (isPaused) return;
+
   if (e.key >= "1" && e.key <= "4") { // Number keys 1-4 to select option
     const index = Number(e.key) - 1;
     // only select if option exists
@@ -221,6 +227,41 @@ function focusFirstOption() {
   if (first) first.focus();
 }
 
+  // Pause/resume functionality
+  function setPausedState(paused) {
+    isPaused = Boolean(paused);
+
+    // disable/enable option buttons
+    const optionBtns = optionsContainer.querySelectorAll(".optionBtn");
+    optionBtns.forEach((btn) => {
+      btn.disabled = isPaused;
+      btn.tabIndex = isPaused ? -1 : 0;
+      btn.setAttribute("aria-disabled", String(isPaused));
+    });
+
+    // navigation buttons should also be disabled while paused
+    if (prevBtn) prevBtn.disabled = isPaused || current === 0;
+    if (nextBtn) nextBtn.disabled = isPaused || current === total - 1;
+
+    // update pause button label and aria state
+    if (pauseBtn) {
+      pauseBtn.textContent = isPaused ? "Resume" : "Pause";
+      pauseBtn.setAttribute("aria-pressed", String(isPaused));
+    }
+
+    // reflect paused styling on the quiz window if present
+    if (quizWindow) {
+      quizWindow.classList.toggle("paused", isPaused);
+    }
+  }
+
+  function togglePause() {
+    setPausedState(!isPaused);
+    if (!isPaused) focusFirstOption();
+  }
+
+  if (pauseBtn) pauseBtn.addEventListener("click", togglePause);
+
 // Initial setup and render (prepare a preview of the first question without opening the quiz)
 (async function init() {
   await getData();
@@ -246,6 +287,8 @@ async function showQuiz() {
     quizWindow.classList.remove("hidden");
     quizWindow.setAttribute("aria-hidden", "false");
   }
+  // ensure not paused when starting a fresh quiz
+  setPausedState(false);
   if (localStorage.getItem("username") === null || localStorage.getItem("username") === "") {
     alert("Please enter a username before starting the quiz.");
     return;
@@ -369,6 +412,8 @@ if (diffSelect) {
 
 if (submitBtn)
   submitBtn.addEventListener("click", () => {
+    // resume/unpause before computing results to ensure consistent state
+    setPausedState(false);
     computeResults();
     hideQuiz();
     showResults();
