@@ -145,7 +145,7 @@
             </select>
           </div>
         </div>
-        <!-- Button to start quiz (managed by JS) -->
+      <!-- Button to start quiz (managed by JS) -->
         <button id="startBtn" type="button" class="btn btn-primary btn-lg">
           Start Game
         </button>
@@ -165,7 +165,7 @@
             </h1>
           </div>
           <div class="modal-body">
-            <!-- Quiz Section -->
+      <!-- Quiz Section -->
             <section class="quiz" id="quiz" aria-live="polite">
               <div id="progress" class="progress" aria-hidden="true">
                 Question 1 / 5
@@ -176,7 +176,7 @@
                 </div>
 
                 <div class="options" role="list" aria-label="Answer options">
-                  <!-- Option buttons are rendered by script.js -->
+      <!-- Option buttons are rendered by script.js -->
                 </div>
 
                 <div
@@ -205,7 +205,7 @@
         </div>
       </div>
 
-      <!-- Results Section -->
+<!-- Results Section -->
 
       <section id="resultsSection" class="hidden mt-5 fs-5" aria-hidden="true">
         <div class="container text-center">
@@ -234,8 +234,23 @@
           </div>
         </div>
       </section>
+
+      
+<!-- word of the day-->
+       <section>
+        <div id="word-of-day" class="card my-3 mx-auto" style="max-width:600px;" aria-live="polite">
+          <div class="card-body">
+            <h2 class="card-title fs-5">Word of the Day</h2>
+            <p id="wotd-word" class="h4 mb-1">Loading…</p>
+            <p id="wotd-def" class="mb-0 text-muted"></p>
+            <small id="wotd-source" class="text-muted d-block mt-2"></small>
+          </div>
+        </div>
+       </section>
     </main>
 
+
+<!-- Footer-->
     <footer class="mt-5">
       <div class="container">
         <div class="row align-items-center">
@@ -297,7 +312,7 @@
         </div>
       </div>
 
-      <!-- Copyright -->
+<!-- Copyright -->
 
       <div class="text-center">
         <p class="mb-0">&copy; 2025 WordQuest. All rights reserved.</p>
@@ -310,9 +325,6 @@
       crossorigin="anonymous"
     ></script>
     <script src="/assets/js/script.js"></script>
-    <script
-      src="https://kit.fontawesome.com/YOUR-KIT-CODE-HERE.js"
-      crossorigin="anonymous"
-    ></script>
+    
   </body>
 </html>

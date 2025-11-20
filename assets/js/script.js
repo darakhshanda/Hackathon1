@@ -602,3 +602,89 @@ window.addEventListener("keydown", (e) => {
    if (reviewBtn) reviewBtn.addEventListener("click", noReview);
    }
 });
+
+
+// Word of the Day feature
+const WOTD_API_KEY = 'YOUR_WORDNIK_KEY'; // replace safely
+const WOTD_URL = `https://api.wordnik.com/v4/words.json/wordOfTheDay?api_key=${WOTD_API_KEY}`;
+const WOTD_STORAGE = 'wordOfTheDay_v1';
+
+function todayIso() {
+  const d = new Date();
+  return d.toISOString().slice(0, 10); // YYYY-MM-DD
+}
+
+function renderWotd(item) {
+  const wordEl = document.getElementById('wotd-word');
+  const defEl = document.getElementById('wotd-def');
+  const srcEl = document.getElementById('wotd-source');
+
+  if (!wordEl || !defEl || !srcEl) return;
+
+  if (!item) {
+    wordEl.textContent = '—';
+    defEl.textContent = 'Word not available right now.';
+    srcEl.textContent = '';
+    return;
+  }
+
+  wordEl.textContent = item.word || '—';
+  defEl.textContent = item.definition || '';
+  srcEl.textContent = item.source ? `Source: ${item.source}` : '';
+}
+
+async function fetchWotd() {
+  // check cache
+  try {
+    const cached = JSON.parse(localStorage.getItem(WOTD_STORAGE) || 'null');
+    const today = todayIso();
+    if (cached && cached.date === today) {
+      renderWotd(cached);
+      return;
+    }
+  } catch (e) {
+    // ignore parse errors
+  }
+
+  // fetch fresh
+  try {
+    const res = await fetch(WOTD_URL);
+    if (!res.ok) throw new Error('Network response not OK');
+    const data = await res.json();
+
+    // Wordnik returns .word and .definitions (array)
+    const definition = (data.definitions && data.definitions[0] && data.definitions[0].text) || data.note || '';
+    const item = {
+      date: todayIso(),
+      word: data.word || '',
+      definition: definition,
+      source: 'Wordnik'
+    };
+
+    try {
+      localStorage.setItem(WOTD_STORAGE, JSON.stringify(item));
+    } catch (e) {
+      // localStorage may fail in private mode; ignore
+    }
+
+    renderWotd(item);
+  } catch (err) {
+    // on error, try to show cached value (if any) else show friendly message
+    try {
+      const cached = JSON.parse(localStorage.getItem(WOTD_STORAGE) || 'null');
+      if (cached) {
+        renderWotd(cached);
+        return;
+      }
+    } catch (e) {}
+    renderWotd(null);
+    console.error('WOTD fetch failed:', err);
+  }
+}
+
+// call on load
+document.addEventListener('DOMContentLoaded', () => {
+  
+  fetchWotd();
+});
+
