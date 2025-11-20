@@ -18,7 +18,7 @@ const metaEl = document.getElementById("meta");
 // quiz main container for accessibility
 const quizMain = document.getElementById("quiz");
 let username = localStorage.getItem("username");
-const usernameButton = document.getElementById("usernameButton");
+//const usernameButton = document.getElementById("usernameButton");
 // pause button and state
 const pauseBtn = document.getElementById("pauseBtn");
 let isPaused = false;
@@ -394,7 +394,7 @@ const usernameInputEl = document.getElementById("usernameInput");
 if (usernameInputEl) {
   usernameInputEl.addEventListener("keydown", (e) => {
     if (e.key === "Enter") {
-      startWithUsername();
+      e.setfocus(startBtn);
     }
   });
 }
