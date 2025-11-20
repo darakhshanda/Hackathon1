@@ -1,4 +1,3 @@
-
 // `questions` is the full bank. `quizQuestions` is the current randomized subset for a run.
 
 let questions = []; // placeholder for hard difficulty questions
@@ -437,17 +436,17 @@ window.addEventListener("keydown", (e) => {
 
 
 
-// Word of the Day feature
-const WOTD_API_KEY = 'YOUR_WORDNIK_KEY'; // replace safely
-const WOTD_URL = `https://api.wordnik.com/v4/words.json/wordOfTheDay?api_key=${WOTD_API_KEY}`;
-const WOTD_STORAGE = 'wordOfTheDay_v1';
+// Word of the Day feature (prefixed with dr)
+const drWOTD_API_KEY = 'YOUR_WORDNIK_KEY'; // replace safely
+const drWOTD_URL = `https://api.wordnik.com/v4/words.json/wordOfTheDay?api_key=${drWOTD_API_KEY}`;
+const drWOTD_STORAGE = 'drWordOfTheDay_v1';
 
-function todayIso() {
+function drTodayIso() {
   const d = new Date();
   return d.toISOString().slice(0, 10); // YYYY-MM-DD
 }
 
-function renderWotd(item) {
+function drRenderWotd(item) {
   const wordEl = document.getElementById('wotd-word');
   const defEl = document.getElementById('wotd-def');
   const srcEl = document.getElementById('wotd-source');
@@ -466,13 +465,13 @@ function renderWotd(item) {
   srcEl.textContent = item.source ? `Source: ${item.source}` : '';
 }
 
-async function fetchWotd() {
+async function drFetchWotd() {
   // check cache
   try {
-    const cached = JSON.parse(localStorage.getItem(WOTD_STORAGE) || 'null');
-    const today = todayIso();
+    const cached = JSON.parse(localStorage.getItem(drWOTD_STORAGE) || 'null');
+    const today = drTodayIso();
     if (cached && cached.date === today) {
-      renderWotd(cached);
+      drRenderWotd(cached);
       return;
     }
   } catch (e) {
@@ -481,43 +480,42 @@ async function fetchWotd() {
 
   // fetch fresh
   try {
-    const res = await fetch(WOTD_URL);
+    const res = await fetch(drWOTD_URL);
     if (!res.ok) throw new Error('Network response not OK');
     const data = await res.json();
 
     // Wordnik returns .word and .definitions (array)
     const definition = (data.definitions && data.definitions[0] && data.definitions[0].text) || data.note || '';
     const item = {
-      date: todayIso(),
+      date: drTodayIso(),
       word: data.word || '',
       definition: definition,
       source: 'Wordnik'
     };
 
     try {
-      localStorage.setItem(WOTD_STORAGE, JSON.stringify(item));
+      localStorage.setItem(drWOTD_STORAGE, JSON.stringify(item));
     } catch (e) {
       // localStorage may fail in private mode; ignore
     }
 
-    renderWotd(item);
+    drRenderWotd(item);
   } catch (err) {
     // on error, try to show cached value (if any) else show friendly message
     try {
-      const cached = JSON.parse(localStorage.getItem(WOTD_STORAGE) || 'null');
+      const cached = JSON.parse(localStorage.getItem(drWOTD_STORAGE) || 'null');
       if (cached) {
-        renderWotd(cached);
+        drRenderWotd(cached);
         return;
       }
     } catch (e) {}
-    renderWotd(null);
+    drRenderWotd(null);
     console.error('WOTD fetch failed:', err);
   }
 }
 
 // call on load
 document.addEventListener('DOMContentLoaded', () => {
-  
-  fetchWotd();
+  drFetchWotd();
 });
 
