@@ -1,7 +1,7 @@
-@import url(/assets/css/dr.css);
-@import url(/assets/css/ds.css);
-@import url(/assets/css/gc.css);
-@import url(/assets/css/jc.css);
+@import url(./dr.css);
+@import url(./ds.css);
+@import url(./gc.css);
+@import url(./jc.css);
 
 /** ::before and ::after: those pseudo-elements can also affect layout, so including them ensures they follow the same sizing rules.
 Placement: putting these rules at the top of style.css (before your @imports) ensures imported styles inherit border-box by default.
@@ -64,4 +64,27 @@ footer {
 /* Make the main page content grow to push footer to bottom */
 main {
     flex: 1;
+}
+
+/* Media Queries for Responsive Background Handling */
+
+/* Desktop / large-screen background adjustments */
+
+@media (min-width: 768px) {
+    body {
+        background-attachment: fixed;
+    }
+}
+/* Mobile / small-screen background adjustments */
+@media (max-width: 767px) {
+    body {
+        /* Use a smaller image (if provided) for bandwidth and better focal control */
+        background-image: url(../images/background1-small.png);
+        /* Center horizontally, slightly higher vertical focus so important content isn't cropped */
+        background-position: center 20%;
+        /* Keep cover so image fills area but allow nicer cropping on tall/narrow screens */
+        background-size: cover;
+        /* Avoid fixed attachment on mobile (poor performance / iOS issues) */
+        background-attachment: scroll;
+    }
 }
