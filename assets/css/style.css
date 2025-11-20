@@ -1,7 +1,7 @@
-@import url(./assets/css/dr.css);
-@import url(./assets/css/ds.css);
-@import url(./assets/css/gc.css);
-@import url(./assets/css/jc.ss);
+@import url(./dr.css);
+@import url(./ds.css);
+@import url(./gc.css);
+@import url(./jc.css);
 
 /** ::before and ::after: those pseudo-elements can also affect layout, so including them ensures they follow the same sizing rules.
 Placement: putting these rules at the top of style.css (before your @imports) ensures imported styles inherit border-box by default.
