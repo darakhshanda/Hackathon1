@@ -93,11 +93,12 @@
               data-bs-target="#instructions-modal"
             >
               <img
-                      src="assets/images/wizardR.png"
-                      alt="WordQuest Wizard"
-                      height="40"
-                      class="me-2 align-middle"
-                    /> How to Play
+                src="assets/images/wizardR.png"
+                alt="WordQuest Wizard"
+                height="40"
+                class="me-2 align-middle"
+              />
+              How to Play
             </button>
           </div>
           <div
@@ -110,7 +111,10 @@
             <div class="modal-dialog modal-dialog-centered">
               <div class="modal-content modal-content-jc">
                 <div class="modal-header">
-                  <h1 class="modal-title fs-5 text-center" id="instructions-modal-label">
+                  <h1
+                    class="modal-title fs-5 text-center"
+                    id="instructions-modal-label"
+                  >
                     <img
                       src="assets/images/wizardR.png"
                       alt="WordQuest Wizard"
@@ -202,11 +206,11 @@
         <!-- Button to start quiz (managed by JS) -->
         <button id="startBtn" type="button" class="btn btn-jc btn-lg">
           <img
-          src="assets/images/castle.png"
-          alt="WordQuest Castle"
-          width="30"
-          height="40"
-          class="me-2 align-middle"
+            src="assets/images/castle.png"
+            alt="WordQuest Castle"
+            width="30"
+            height="40"
+            class="me-2 align-middle"
           />
           Start Game
         </button>
@@ -299,10 +303,19 @@
       <section
         id="word-of-day"
         class="card my-3 mx-auto"
-        style="max-width: 600px"
+        style="max-width: 400px"
         aria-live="polite"
       >
-        <div class="card-body">
+        <div
+          class="card-body"
+          style="
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            border: 3px solid var(--primary-color-highlight);
+            padding: 0.5rem 1rem;
+            border-radius: 0.35rem;
+          "
+        >
           <h2 class="card-title fs-5">Word of the Day</h2>
           <p id="wotd-word" class="h4 mb-1">Loading…</p>
           <p id="wotd-def" class="mb-0 text-muted">
