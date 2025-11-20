@@ -295,6 +295,7 @@ const wrongEl = document.getElementById("wrongAnswers");
 
 // Show quiz window and hide results
 async function showQuiz() {
+  document.getElementById("detailedResults").innerHTML = "";
   if (resultsSection) resultsSection.classList.add("hidden");
   if (quizWindow) {
     quizWindow.classList.remove("hidden");
@@ -447,7 +448,8 @@ if (submitBtn)
   });
  
 if (reviewBtn) reviewBtn.addEventListener("click", showReview);
-if (retryBtn) retryBtn.addEventListener("click", showQuiz);
+if (retryBtn)
+  retryBtn.addEventListener("click", showQuiz);
 // keep small keyboard nicety: Escape when quiz open closes it and shows results
 window.addEventListener("keydown", (e) => {
   if (e.key === "Escape" && quizWindow && !quizWindow.classList.contains("hidden")) {
