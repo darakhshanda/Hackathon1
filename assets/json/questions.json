@@ -1,4 +1,334 @@
-[
+{ "easy": [  {
+    "text": "What does Able mean",
+    "options": [
+      "Not able to do something",
+      "Having the skill, power or means to do something",
+      "Very tired",
+      "To sleep deeply"
+    ],
+    "answer": 1
+  },
+  {
+    "text": "What does Big mean",
+    "options": [
+      "Very small",
+      "Large in size",
+      "Red in color",
+      "Easy to carry"
+    ],
+    "answer": 1
+  },
+  {
+    "text": "What does Cold mean",
+    "options": [
+      "Having a low temperature",
+      "Very hot",
+      "Making noise",
+      "Sleeping"
+    ],
+    "answer": 0
+  },
+  {
+    "text": "What does Dark mean",
+    "options": [
+      "Without light or little light",
+      "Very bright",
+      "Being loud",
+      "Running fast"
+    ],
+    "answer": 0
+  },
+  {
+    "text": "What does Easy mean",
+    "options": [
+      "Hard to do",
+      "Simple or not difficult",
+      "Always boring",
+      "Very fast"
+    ],
+    "answer": 1
+  },
+  {
+    "text": "What does Fast mean",
+    "options": [
+      "Moving quickly",
+      "Moving slowly",
+      "Standing still",
+      "Sleeping deeply"
+    ],
+    "answer": 0
+  },
+  {
+    "text": "What does Good mean",
+    "options": [
+      "Bad or unpleasant",
+      "Right or satisfactory",
+      "Ugly or scary",
+      "Very loud"
+    ],
+    "answer": 1
+  },
+  {
+    "text": "What does Happy mean",
+    "options": [
+      "Feeling joy",
+      "Feeling tired",
+      "Feeling sick",
+      "Feeling cold"
+    ],
+    "answer": 0
+  },
+  {
+    "text": "What does Hot mean",
+    "options": [
+      "Having a high temperature",
+      "Very cold",
+      "Very dark",
+      "Very easy"
+    ],
+    "answer": 0
+  },
+  {
+    "text": "What does Jump mean",
+    "options": [
+      "Move into the air using your legs",
+      "Run slowly",
+      "Sleep fast",
+      "Shout loudly"
+    ],
+    "answer": 0
+  },
+  {
+    "text": "What does Kind mean",
+    "options": [
+      "Nasty or mean",
+      "Friendly and nice",
+      "Very quiet",
+      "Very fast"
+    ],
+    "answer": 1
+  },
+  {
+    "text": "What does Large mean",
+    "options": [
+      "Small in size",
+      "Big in size",
+      "Very bright",
+      "Very quiet"
+    ],
+    "answer": 1
+  },
+  {
+    "text": "What does Light mean",
+    "options": [
+      "Not heavy",
+      "Very dark",
+      "Very cold",
+      "Very heavy"
+    ],
+    "answer": 0
+  },
+  {
+    "text": "What does Loud mean",
+    "options": [
+      "Making a lot of noise",
+      "Very quiet",
+      "Very fast",
+      "Very slow"
+    ],
+    "answer": 0
+  },
+  {
+    "text": "What does New mean",
+    "options": [
+      "Old and used",
+      "Just made or discovered",
+      "Very tired",
+      "Very heavy"
+    ],
+    "answer": 1
+  },
+  {
+    "text": "What does Old mean",
+    "options": [
+      "Young and new",
+      "Having lived a long time",
+      "Very bright",
+      "Very fast"
+    ],
+    "answer": 1
+  },
+  {
+    "text": "What does Quick mean",
+    "options": [
+      "Slow in speed",
+      "Fast in movement or action",
+      "Very tired",
+      "Very happy"
+    ],
+    "answer": 1
+  },
+  {
+    "text": "What does Quiet mean",
+    "options": [
+      "Making little or no noise",
+      "Very loud",
+      "Very bright",
+      "Very fast"
+    ],
+    "answer": 0
+  },
+  {
+    "text": "What does Rain mean",
+    "options": [
+      "Water that falls from clouds",
+      "Snow",
+      "Strong wind",
+      "Very hot sun"
+    ],
+    "answer": 0
+  },
+  {
+    "text": "What does Rest mean",
+    "options": [
+      "To stop work and relax",
+      "To run quickly",
+      "To jump high",
+      "To swim fast"
+    ],
+    "answer": 0
+  },
+  {
+    "text": "What does Safe mean",
+    "options": [
+      "Free from danger",
+      "Very dangerous",
+      "Very dark",
+      "Always noisy"
+    ],
+    "answer": 0
+  },
+  {
+    "text": "What does Slow mean",
+    "options": [
+      "Not fast",
+      "Very fast",
+      "Very tired",
+      "Very noisy"
+    ],
+    "answer": 0
+  },
+  {
+    "text": "What does Small mean",
+    "options": [
+      "Not big",
+      "Very big",
+      "Very bright",
+      "Very heavy"
+    ],
+    "answer": 0
+  },
+  {
+    "text": "What does Soft mean",
+    "options": [
+      "Smooth and pleasant to touch",
+      "Very hard",
+      "Very loud",
+      "Very fast"
+    ],
+    "answer": 0
+  },
+  {
+    "text": "What does Strong mean",
+    "options": [
+      "Having great power",
+      "Very weak",
+      "Very tired",
+      "Very slow"
+    ],
+    "answer": 0
+  },
+  {
+    "text": "What does Tall mean",
+    "options": [
+      "High in height",
+      "Very short",
+      "Very wide",
+      "Very fast"
+    ],
+    "answer": 0
+  },
+  {
+    "text": "What does Warm mean",
+    "options": [
+      "Moderately hot",
+      "Very cold",
+      "Very fast",
+      "Very loud"
+    ],
+    "answer": 0
+  },
+  {
+    "text": "What does Wet mean",
+    "options": [
+      "Covered with water",
+      "Very dry",
+      "Very heavy",
+      "Very dark"
+    ],
+    "answer": 0
+  },
+  {
+    "text": "What does Wide mean",
+    "options": [
+      "Large from side to side",
+      "Very narrow",
+      "Very light",
+      "Very hot"
+    ],
+    "answer": 0
+  },
+  {
+    "text": "What does Young mean",
+    "options": [
+      "Not old",
+      "Very tired",
+      "Very heavy",
+      "Very loud"
+    ],
+    "answer": 0
+  }
+],
+"medium":[  {
+    "text": "What does adapt mean?",
+    "options": [
+      "To change to fit new conditions",
+      "To break something",
+      "To run very fast",
+      "To sleep deeply"
+    ],
+    "answer": 0
+  },
+  {
+    "text": "What does adjacent mean?",
+    "options": [
+      "Far away",
+      "Next to or beside",
+      "Very old",
+      "Very colorful"
+    ],
+    "answer": 1
+  },
+  {
+    "text": "What does advocate mean?",
+    "options": [
+      "To support or recommend publicly",
+      "To hide something",
+      "To jump high",
+      "To eat quickly"
+    ],
+    "answer": 0
+  },
   {
     "text": "What does Conceal mean",
     "options": [
@@ -201,55 +531,55 @@
   },
 
 {
- word: "Ephemeral",
-                options: [
-                    "Lasting for a very short time",
-                    "Extremely large in size",
-                    "Relating to money",
-                    "Full of energy"
-                ],
-                correct: 0
-            },
-            {
-                word: "Ubiquitous",
-                options: [
-                    "Present everywhere",
-                    "Extremely rare",
-                    "Very expensive",
-                    "Highly intelligent"
-                ],
-                correct: 0
-            },
-            {
-                word: "Serendipity",
-                options: [
-                    "The occurrence of fortunate discoveries by accident",
-                    "A type of musical instrument",
-                    "Extreme sadness",
-                    "A scientific measurement"
-                ],
-                correct: 0
-            },
-            {
-                word: "Pragmatic",
-                options: [
-                    "Dealing with things sensibly and realistically",
-                    "Related to farming",
-                    "Extremely detailed",
-                    "Overly emotional"
-                ],
-                correct: 0
-            },
-            {
-                word: "Eloquent",
-                options: [
-                    "Fluent or persuasive in speaking or writing",
-                    "Moving slowly",
-                    "Brightly colored",
-                    "Difficult to understand"
-                ],
-                correct: 0
-            },
+    "text": "What does Ephemeral mean",
+    "options": [
+      "Lasting for a very short time",
+      "Extremely large in size",
+      "Relating to money",
+      "Full of energy"
+    ],
+    "answer": 0
+  },
+  {
+    "text": "What does Ubiquitous mean",
+    "options": [
+      "Present everywhere",
+      "Extremely rare",
+      "Very expensive",
+      "Highly intelligent"
+    ],
+    "answer": 0
+  },
+  {
+    "text": "What does Serendipity mean",
+    "options": [
+      "The occurrence of fortunate discoveries by accident",
+      "A type of musical instrument",
+      "Extreme sadness",
+      "A scientific measurement"
+    ],
+    "answer": 0
+  },
+  {
+    "text": "What does Pragmatic mean",
+    "options": [
+      "Dealing with things sensibly and realistically",
+      "Related to farming",
+      "Extremely detailed",
+      "Overly emotional"
+    ],
+    "answer": 0
+  },
+  {
+    "text": "What does Eloquent mean",
+    "options": [
+      "Fluent or persuasive in speaking or writing",
+      "Moving slowly",
+      "Brightly colored",
+      "Difficult to understand"
+    ],
+    "answer": 0
+  },
  {
     "text": "What does Abandon mean",
     "options": [
@@ -950,105 +1280,105 @@
     ],
     "answer": 0
   },
-   {
-    text: "What does abandon mean?",
-    options: [
+  {
+    "text": "What does abandon mean?",
+    "options": [
       "To finish something quickly",
       "To leave something or someone behind permanently",
       "To repair something old",
       "To make new friends"
     ],
-    answer: 1
+    "answer": 1
   },
   {
-    text: "What does abbreviate mean?",
-    options: [
+    "text": "What does abbreviate mean?",
+    "options": [
       "To make bigger",
       "To shorten a word or phrase",
       "To explain in detail",
       "To argue with someone"
     ],
-    answer: 1
+    "answer": 1
   },
   {
-    text: "What does abduct mean?",
-    options: [
+    "text": "What does abduct mean?",
+    "options": [
       "To take someone away illegally",
       "To clean something gently",
       "To give someone a gift",
       "To try something new"
     ],
-    answer: 0
+    "answer": 0
   },
   {
-    text: "What does abrasive mean?",
-    options: [
+    "text": "What does abrasive mean?",
+    "options": [
       "Soft and smooth in manner",
       "Rough or harsh in manner or texture",
       "Full of color",
       "Calm and relaxed"
     ],
-    answer: 1
+    "answer": 1
   },
   {
-    text: "What does abundant mean?",
-    options: [
+    "text": "What does abundant mean?",
+    "options": [
       "Not enough of something",
       "Present in great quantity, more than enough",
       "Very old and broken",
       "Full of mystery"
     ],
-    answer: 1
+    "answer": 1
   },
   {
-    text: "What does accessible mean?",
-    options: [
+    "text": "What does accessible mean?",
+    "options": [
       "Able to be reached or entered easily",
       "Difficult to find",
       "Very large",
       "Not useful"
     ],
-    answer: 0
+    "answer": 0
   },
   {
-    text: "What does accommodate mean?",
-    options: [
+    "text": "What does accommodate mean?",
+    "options": [
       "To provide space or meet needs",
       "To forget about something",
       "To draw a picture",
       "To read a book"
     ],
-    answer: 0
+    "answer": 0
   },
   {
-    text: "What does accompany mean?",
-    options: [
+    "text": "What does accompany mean?",
+    "options": [
       "To run rapidly",
       "To go somewhere with another person",
       "To sleep deeply",
       "To eat a lot"
     ],
-    answer: 1
+    "answer": 1
   },
   {
-    text: "What does accomplish mean?",
-    options: [
+    "text": "What does accomplish mean?",
+    "options": [
       "To lose something important",
       "To succeed in doing something",
       "To buy a new car",
       "To teach a class"
     ],
-    answer: 1
+    "answer": 1
   },
   {
-    text: "What does accurate mean?",
-    options: [
+    "text": "What does accurate mean?",
+    "options": [
       "Full of mistakes",
       "Very slow",
       "Free from error, correct",
       "Easy to break"
     ],
-    answer: 2
+    "answer": 2
   },
 {
     "text": "What does Eradicate mean",
@@ -1449,5 +1779,308 @@
       "Careful with money"
     ],
     "answer": 0
+  }
+],
+"hard":[  
+  {
+    "text": "What does Ambitious mean",
+    "options": [
+      "To be very old",
+      "Having a strong desire to achieve success",
+      "To leave quickly",
+      "Hopeful and confident about the future"
+    ],
+    "answer": 1
   },
+  {
+    "text": "What does Benevolent mean",
+    "options": [
+      "Kind and generous",
+      "Very cheerful",
+      "Expressed clearly, easy to understand",
+      "Strong and healthy"
+    ],
+    "answer": 0
+  },
+  {
+    "text": "What does Candid mean",
+    "options": [
+      "Honest and open",
+      "Hopeful",
+      "Cheerful and friendly",
+      "Old-fashioned"
+    ],
+    "answer": 0
+  },
+  {
+    "text": "What does Diligent mean",
+    "options": [
+      "New or unusual",
+      "Very small",
+      "Showing careful and persistent effort",
+      "Eager or enthusiastic"
+    ],
+    "answer": 2
+  },
+  {
+    "text": "What does Efficient mean",
+    "options": [
+      "Careful with money",
+      "Working in a well-organized and productive way",
+      "Kind and generous",
+      "Expressed clearly"
+    ],
+    "answer": 1
+  },
+  {
+    "text": "What does Frugal mean",
+    "options": [
+      "Careful with money, avoiding waste",
+      "Very confused or puzzled",
+      "To abandon something",
+      "Cheerful and friendly"
+    ],
+    "answer": 0
+  },
+  {
+    "text": "What does Genuine mean",
+    "options": [
+      "Real and sincere, not fake",
+      "Strong and healthy",
+      "Showing attention to detail",
+      "Acting with care"
+    ],
+    "answer": 0
+  },
+  {
+    "text": "What does Hospitable mean",
+    "options": [
+      "Friendly and welcoming to guests",
+      "Next to something",
+      "Eager or enthusiastic",
+      "Honest and open"
+    ],
+    "answer": 0
+  },
+  {
+    "text": "What does Impartial mean",
+    "options": [
+      "Treating all rivals or disputants equally",
+      "Kind and generous",
+      "Cheerful and friendly",
+      "Difficult and tiring"
+    ],
+    "answer": 0
+  },
+  {
+    "text": "What does Jovial mean",
+    "options": [
+      "Showing careful effort",
+      "Cheerful and friendly",
+      "Careful with money",
+      "Calm and peaceful"
+    ],
+    "answer": 1
+  },
+  {
+    "text": "What does Keen mean",
+    "options": [
+      "Eager or enthusiastic",
+      "Strong and healthy",
+      "New or unusual",
+      "Expressed clearly"
+    ],
+    "answer": 0
+  },
+  {
+    "text": "What does Lucid mean",
+    "options": [
+      "Expressed clearly, easy to understand",
+      "Kind and generous",
+      "Very confused",
+      "Acting with care"
+    ],
+    "answer": 0
+  },
+  {
+    "text": "What does Meticulous mean",
+    "options": [
+      "Showing attention to detail",
+      "Friendly and welcoming",
+      "Strong and healthy",
+      "Cheerful and friendly"
+    ],
+    "answer": 0
+  },
+  {
+    "text": "What does Novel mean",
+    "options": [
+      "New or unusual in an interesting way",
+      "Strong and healthy",
+      "Careful with money",
+      "Expressed clearly"
+    ],
+    "answer": 0
+  },
+  {
+    "text": "What does Optimistic mean",
+    "options": [
+      "Hopeful and confident about the future",
+      "Kind and generous",
+      "Honest and open",
+      "Friendly and welcoming"
+    ],
+    "answer": 0
+  },
+  {
+    "text": "What does Prudent mean",
+    "options": [
+      "Acting with care and thought for the future",
+      "Cheerful and friendly",
+      "Very confused",
+      "Strong and healthy"
+    ],
+    "answer": 0
+  },
+  {
+    "text": "What does Quaint mean",
+    "options": [
+      "Attractively unusual or old-fashioned",
+      "Very small",
+      "Acting with care",
+      "Kind and generous"
+    ],
+    "answer": 0
+  },
+  {
+    "text": "What does Robust mean",
+    "options": [
+      "Strong and healthy",
+      "New or unusual",
+      "Eager or enthusiastic",
+      "Very confused"
+    ],
+    "answer": 0
+  },
+  {
+    "text": "What does Serene mean",
+    "options": [
+      "Calm, peaceful, and untroubled",
+      "Expressed clearly",
+      "Kind and generous",
+      "Strong and healthy"
+    ],
+    "answer": 0
+  },
+  {
+    "text": "What does Tenacious mean",
+    "options": [
+      "Tending to keep a firm hold of something",
+      "Friendly and welcoming",
+      "Cheerful and friendly",
+      "Working in a productive way"
+    ],
+    "answer": 0
+  },
+   {
+    "text": "What does abandon mean?",
+    "options": [
+      "To finish something quickly",
+      "To leave something or someone behind permanently",
+      "To repair something old",
+      "To make new friends"
+    ],
+    "answer": 1
+  },
+  {
+    "text": "What does abbreviate mean?",
+    "options": [
+      "To make bigger",
+      "To shorten a word or phrase",
+      "To explain in detail",
+      "To argue with someone"
+    ],
+    "answer": 1
+  },
+  {
+    "text": "What does abduct mean?",
+    "options": [
+      "To take someone away illegally",
+      "To clean something gently",
+      "To give someone a gift",
+      "To try something new"
+    ],
+    "answer": 0
+  },
+  {
+    "text": "What does abrasive mean?",
+    "options": [
+      "Soft and smooth in manner",
+      "Rough or harsh in manner or texture",
+      "Full of color",
+      "Calm and relaxed"
+    ],
+    "answer": 1
+  },
+  {
+    "text": "What does abundant mean?",
+    "options": [
+      "Not enough of something",
+      "Present in great quantity, more than enough",
+      "Very old and broken",
+      "Full of mystery"
+    ],
+    "answer": 1
+  },
+  {
+    "text": "What does accessible mean?",
+    "options": [
+      "Able to be reached or entered easily",
+      "Difficult to find",
+      "Very large",
+      "Not useful"
+    ],
+    "answer": 0
+  },
+  {
+    "text": "What does accommodate mean?",
+    "options": [
+      "To provide space or meet needs",
+      "To forget about something",
+      "To draw a picture",
+      "To read a book"
+    ],
+    "answer": 0
+  },
+  {
+    "text": "What does accompany mean?",
+    "options": [
+      "To run rapidly",
+      "To go somewhere with another person",
+      "To sleep deeply",
+      "To eat a lot"
+    ],
+    "answer": 1
+  },
+  {
+    "text": "What does accomplish mean?",
+    "options": [
+      "To lose something important",
+      "To succeed in doing something",
+      "To buy a new car",
+      "To teach a class"
+    ],
+    "answer": 1
+  },
+  {
+    "text": "What does accurate mean?",
+    "options": [
+      "Full of mistakes",
+      "Very slow",
+      "Free from error, correct",
+      "Easy to break"
+    ],
+    "answer": 2
+  }
 ]
+}
