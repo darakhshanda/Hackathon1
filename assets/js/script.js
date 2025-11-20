@@ -18,7 +18,7 @@ const metaEl = document.getElementById("meta");
 // quiz main container for accessibility
 const quizMain = document.getElementById("quiz");
 let username = localStorage.getItem("username");
-const usernameButton = document.getElementById("usernameButton");
+//const usernameButton = document.getElementById("usernameButton");
 // pause button and state
 const pauseBtn = document.getElementById("pauseBtn");
 let isPaused = false;
@@ -136,16 +136,16 @@ function renderQuestion() {
         selectOption(idx);
       }
     });
-
+// append to container
     optionsContainer.appendChild(btn);
   });
-
+//selected[current] 
   // update nav buttons
   prevBtn.disabled = current === 0;
   nextBtn.disabled = current === total - 1;
   if (metaEl) metaEl.textContent = selected[current] === null ? "No answer selected" : `Selected: ${q.options[selected[current]]}`;
 }
-
+// handle option selection
 function selectOption(idx) {
   selected[current] = idx;
 
@@ -161,8 +161,8 @@ function selectOption(idx) {
       btn.setAttribute("aria-pressed", "false");
     }
   });
-
-  metaEl.textContent = `Selected: ${quizQuestions[current].options[idx]}`;
+  // update meta/status
+  if (metaEl) metaEl.textContent = `Selected: ${quizQuestions[current].options[idx]}`;
 }
 
 // Navigation handlers
@@ -174,7 +174,12 @@ prevBtn.addEventListener("click", () => {
 });
 //next button event listener for moving to the next question
 nextBtn.addEventListener("click", () => {
+  // prevent advancing if current question has no selected answer
   if (current < total - 1) {
+    if (selected[current] === null) {
+      alert("Please select an option before proceeding.");
+      return;
+    }
     current++;
     renderQuestion();
   }
@@ -205,6 +210,10 @@ window.addEventListener("keydown", (e) => {
     }
   } else if (e.key === "ArrowRight") {// Move right to select option
     if (current < total - 1) {
+      if (selected[current] === null) {
+        alert("Please select an option before proceeding.");
+        return;
+      }
       current++;
       renderQuestion();
       focusFirstOption();
@@ -214,6 +223,10 @@ window.addEventListener("keydown", (e) => {
     if (!active || !active.classList.contains("optionBtn")) { // if not focused on an option
       // move to next question if possible
       if (current < total - 1) { // only if not last question
+        if (selected[current] === null) {
+          alert("Please select an option before proceeding.");
+          return;
+        }
         current++;
         renderQuestion(); // render next question
         focusFirstOption(); // focus first option
@@ -282,6 +295,7 @@ const wrongEl = document.getElementById("wrongAnswers");
 
 // Show quiz window and hide results
 async function showQuiz() {
+  document.getElementById("detailedResults").innerHTML = "";
   if (resultsSection) resultsSection.classList.add("hidden");
   if (quizWindow) {
     quizWindow.classList.remove("hidden");
@@ -340,7 +354,7 @@ function showReview() {
     detailed.innerHTML = "";
     quizQuestions.forEach((q, i) => {
       const item = document.createElement("div");
-      item.className = "resultItem card p-2 mb-2";
+      item.className = "resultItem quizCard p-2 mb-2";
 
       const qTitle = document.createElement("div");
       qTitle.className = "resultQuestion fw-semibold";
@@ -358,7 +372,7 @@ function showReview() {
         // label the user's choice
         if (selected[i] !== null && oi === selected[i]) {
           const badge = document.createElement("span");
-          badge.className = "ms-2 small text-muted";
+          badge.className = "ms-2 small text-muted ";
           badge.textContent = " (your choice)";
           opt.appendChild(badge);
         }
@@ -389,12 +403,12 @@ async function startWithUsername() {
   await showQuiz();
 }
 
-if (usernameButton) usernameButton.addEventListener("click", startWithUsername);
+//if (usernameButton) usernameButton.addEventListener("click", startWithUsername);
 const usernameInputEl = document.getElementById("usernameInput");
 if (usernameInputEl) {
   usernameInputEl.addEventListener("keydown", (e) => {
     if (e.key === "Enter") {
-      startWithUsername();
+      e.setfocus(startBtn);
     }
   });
 }
@@ -415,12 +429,27 @@ if (submitBtn)
     // resume/unpause before computing results to ensure consistent state
     setPausedState(false);
     computeResults();
+    // disable Review button when no questions were answered
+    try {
+      const answeredCount = Array.isArray(selected) ? selected.filter((s) => s !== null).length : 0;
+      if (reviewBtn) reviewBtn.disabled = answeredCount === 0;
+      if (answeredCount === 0) {
+        // optional UX hint: let user know review is disabled
+        // (silent is also acceptable; change alert to nothing if preferred)
+        alert("You didn't answer any questions. Review is disabled.");
+      }
+    } catch (err) {
+      // fail safe: don't block submit flow on unexpected errors
+      console.error('Error while checking answers count:', err);
+    }
+
     hideQuiz();
     showResults();
   });
  
 if (reviewBtn) reviewBtn.addEventListener("click", showReview);
-if (retryBtn) retryBtn.addEventListener("click", showQuiz);
+if (retryBtn)
+  retryBtn.addEventListener("click", showQuiz);
 // keep small keyboard nicety: Escape when quiz open closes it and shows results
 window.addEventListener("keydown", (e) => {
   if (e.key === "Escape" && quizWindow && !quizWindow.classList.contains("hidden")) {

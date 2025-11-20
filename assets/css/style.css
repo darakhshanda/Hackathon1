@@ -12,10 +12,11 @@ override for different behavior: per-element, e.g. input { box-sizing: content-b
     --line-height-base: 1.5;
     --background-color: #ffffff;
     --primary-color: #052c53;
-    --primary-color-highlight: #2fa9c2;
+    --primary-color-highlight: #24aac5;
     --secondary-color: #fce03b;
     --secondary-color-highlight: #5f410c;
     box-sizing: border-box;
+    
 }
 
 *,

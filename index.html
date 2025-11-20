@@ -70,175 +70,113 @@
           <i class="fa-solid fa-scroll"></i> About WordQuest
         </button>
 
-        <div class="collapse" id="aboutCollapse">
-          <div class="card-jc card-body">
-            WordQuest is a friendly, single-page vocabulary game designed for
-            young and beginning English learners. <br />It is designed to be
-            short and confidence-building, just pick the definition you think is
-            right.<br />
-            WordQuest is easy and accessible for learners of all ages.<br />Start
-            the quiz to test your vocabulary, see your score at the end, and
-            restart anytime to practice more.
-          </div>
+      <div class="collapse" id="aboutCollapse">
+        <div class="card-jc card-body">
+          WordQuest is a friendly, single-page vocabulary game designed for
+          young and beginning English learners. <br />It is designed to be
+          short and confidence-building, just pick the definition you think is
+          right.<br />
+          WordQuest is easy and accessible for learners of all ages.<br />Start
+          the quiz to test your vocabulary, see your score at the end, and
+          restart anytime to practice more.
         </div>
-      </section>
-      <!-- Instructions Section-->
-      <section id="instructionSection" class="container text-center mb-3">
-        <div class="row">
-          <div class="col-md-12 text-center mb-3">
-            <button
-              class="btn btn-lg btn-info-jc mt-3"
-              id="instructions-btn"
-              data-bs-toggle="modal"
-              data-bs-target="#instructions-modal"
-            >
-              <img
-                src="assets/images/wizardR.png"
-                alt="WordQuest Wizard"
-                height="40"
-                class="me-2 align-middle"
-              />
-              How to Play
-            </button>
-          </div>
-          <div
-            class="modal fade"
-            id="instructions-modal"
-            tabindex="-1"
-            aria-labelledby="instructions-modal-label"
-            aria-hidden="true"
-          >
-            <div class="modal-dialog modal-dialog-centered">
-              <div class="modal-content modal-content-jc">
-                <div class="modal-header">
-                  <h1
-                    class="modal-title fs-5 text-center"
-                    id="instructions-modal-label"
-                  >
-                    <img
-                      src="assets/images/wizardR.png"
-                      alt="WordQuest Wizard"
-                      height="50"
-                      class="me-2 align-middle"
-                    />
-                    How to Play
-                  </h1>
-                </div>
-                <div class="modal-body">
-                  <p>
-                    How to play WordQuest:<br /><br />
-                    1. Read the word shown at the top of the quiz area.<br />
-                    2. Look at the four answer choices below the word.<br />
-                    3. Select the one you think is correct (only one choice
-                    allowed).<br />
-                    4. Click the Submit Answer to go onto the next.<br />
-                    5. Continue through all five words, clicking submit after
-                    each guess. <br />
-                    6. At the end you will see your final score and can restart
-                    to play again.<br />
-                    7. If you want to stop playing the game, click refresh in
-                    your browser to exit the quiz area.<br />
-                  </p>
-                </div>
-                <div class="modal-footer">
-                  <button
-                    type="button"
-                    class="btn btn-close-jc"
-                    data-bs-dismiss="modal"
-                  >
-                    Close
-                  </button>
-                </div>
+      </div>
+    </section>
+    <!-- Instructions Section-->
+    <section id="instructionSection" class="container text-center mb-3">
+      <div class="row">
+        <div class="col-md-12 text-center mb-3">
+          <button class="btn btn-lg btn-info-jc mt-3" id="instructions-btn" data-bs-toggle="modal"
+            data-bs-target="#instructions-modal">
+            <i class="fa-solid fa-hat-wizard"></i> How to Play
+          </button>
+        </div>
+        <div class="modal fade" id="instructions-modal" tabindex="-1" aria-labelledby="instructions-modal-label"
+          aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content modal-content-jc">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="instructions-modal-label">
+                  How to Play
+                </h1>
+
+              </div>
+              <div class="modal-body">
+                <p>
+                  How to play WordQuest:<br /><br />
+                  1. Read the word shown at the top of the quiz area.<br />
+                  2. Look at the four answer choices below the word.<br />
+                  3. Select the one you think is correct (only one choice
+                  allowed).<br />
+                  4. Click the Submit Answer to go onto the next.<br />
+                  5. Continue through all five words, clicking submit after
+                  each guess. <br />
+                  6. At the end you will see your final score and can restart
+                  to play again.<br />
+                </p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-close-jc" data-bs-dismiss="modal">
+                  Close
+                </button>
               </div>
             </div>
           </div>
         </div>
-      </section>
-      <!-- Options Section   -->
-      <section id="optionsSection" class="container text-center mb-3 mt-3">
-        <div class="row">
-          <div class="input-group mb-3 options-jc rounded-3 mx-auto">
-            <input
-              id="usernameInput"
-              type="text"
-              class="form-control"
-              placeholder="Enter a username"
-              aria-label="Create Username"
-              aria-describedby="usernameButton"
-              required
-            />
-            <!-- <button class="btn btn-outline-secondary" type="button" id="usernameButton">
+      </div>
+    </section>
+    <!-- Options Section   -->
+    <section id="optionsSection" class="container text-center mb-3 mt-3 ">
+      <div class="row">
+        <div class="input-group mb-3 options-jc rounded-3 mx-auto">
+          <input id="usernameInput" type="text" class="form-control" placeholder="Enter a username"
+            aria-label="Create Username" aria-describedby="usernameButton" required />
+          <!-- <button class="btn btn-outline-secondary" type="button" id="usernameButton">
             Username
           </button> -->
-          </div>
-          <div
-            id="difficultyLevel"
-            class="col-md-12 text-center mb-3 options-jc rounded-3 mx-auto"
-          >
-            <label for="difficultySelect" class="form-label"
-              >Difficulty level</label
-            >
-            <select
-              id="difficultySelect"
-              class="form-select w-auto d-inline-block"
-            >
-              <option value="easy">Easy</option>
-              <option value="medium">Medium</option>
-              <option value="hard">Hard</option>
-            </select>
-          </div>
-          <div
-            id="questionsSelectContainer"
-            class="col-md-12 text-center mb-3 options-jc rounded-3 mx-auto"
-          >
-            <label for="questionsSelect" class="form-label">Questions</label>
-            <select
-              id="questionsSelect"
-              class="form-select w-auto d-inline-block"
-            >
-              <option value="5" selected>5</option>
-              <option value="10">10</option>
-              <option value="15">15</option>
-              <option value="20">20</option>
-            </select>
-          </div>
         </div>
-        <!-- Button to start quiz (managed by JS) -->
-        <button id="startBtn" type="button" class="btn btn-jc btn-lg">
-          <img
-            src="assets/images/castle.png"
-            alt="WordQuest Castle"
-            width="30"
-            height="40"
-            class="me-2 align-middle"
-          />
-          Start Game
-        </button>
-      </section>
-      <!-- Quiz Window (managed by JS, not Bootstrap modal) -->
-      <div
-        id="quizWindow"
-        class="quizWindow hidden"
-        aria-hidden="true"
-        role="dialog"
-        aria-labelledby="staticBackdropLabel"
-      >
-        <div class="quizPanel card">
-          <div class="modal-header">
-            <h1 class="modal-title fs-5" id="staticBackdropLabel">
-              Select your Answers
-            </h1>
-          </div>
-          <div class="modal-body">
-            <!-- Quiz Section -->
-            <section class="quiz" id="quiz" aria-live="polite">
-              <div id="progress" class="progress" aria-hidden="true">
-                Question 1 / 5
+        <div id="difficultyLevel" class="col-md-12 text-center mb-3 options-jc rounded-3 mx-auto">
+          <label for="difficultySelect" class="form-label">Difficulty level</label>
+          <select id="difficultySelect" class="form-select w-auto d-inline-block">
+            <option value="easy">Easy</option>
+            <option value="medium">Medium</option>
+            <option value="hard">Hard</option>
+          </select>
+        </div>
+        <div id="questionsSelectContainer" class="col-md-12 text-center mb-3 options-jc rounded-3 mx-auto">
+          <label for="questionsSelect" class="form-label">Questions</label>
+          <select id="questionsSelect" class="form-select w-auto d-inline-block">
+            <option value="5" selected>5</option>
+            <option value="10">10</option>
+            <option value="15">15</option>
+            <option value="20">20</option>
+          </select>
+        </div>
+      </div>
+      <!-- Button to start quiz (managed by JS) -->
+      <button id="startBtn" type="button" class="btn btn-jc btn-lg"><i class="fa-solid fa-dungeon"></i>
+        Start Game
+      </button>
+    </section>
+    <!-- Quiz Window (managed by JS, not Bootstrap modal) -->
+    <div id="quizWindow" class="quizWindow hidden" aria-hidden="true" role="dialog"
+      aria-labelledby="staticBackdropLabel">
+      <div class="quizPanel quizCard">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">
+            Select your Answers
+          </h1>
+        </div>
+        <div class="modal-body">
+          <!-- Quiz Section -->
+          <section class="quiz" id="quiz" aria-live="polite">
+            <div id="progress" class="progress" aria-hidden="true">
+              Question 1 / 5
+            </div>
+            <section class="quizCard" aria-labelledby="question">
+              <div id="question" class="question">
+                Question will appear here
               </div>
-              <section class="card" aria-labelledby="question">
-                <div id="question" class="question">
-                  Question will appear here
-                </div>
 
                 <div class="options" role="list" aria-label="Answer options">
                   <!-- Option buttons are rendered by script.js -->
