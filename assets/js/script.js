@@ -354,7 +354,7 @@ function showReview() {
     detailed.innerHTML = "";
     quizQuestions.forEach((q, i) => {
       const item = document.createElement("div");
-      item.className = "resultItem card p-2 mb-2";
+      item.className = "resultItem quizCard p-2 mb-2";
 
       const qTitle = document.createElement("div");
       qTitle.className = "resultQuestion fw-semibold";
@@ -372,7 +372,7 @@ function showReview() {
         // label the user's choice
         if (selected[i] !== null && oi === selected[i]) {
           const badge = document.createElement("span");
-          badge.className = "ms-2 small text-muted";
+          badge.className = "ms-2 small text-muted ";
           badge.textContent = " (your choice)";
           opt.appendChild(badge);
         }

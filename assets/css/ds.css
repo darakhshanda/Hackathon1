@@ -6,11 +6,14 @@
         padding: 10px;
         box-shadow: 2px 2px 5px var(--secondary-color);
        
+       
     }
 
 .quiz {
   width: 100%;
   max-width: 720px;
+  background-color: var(--primary-color-highlight);
+  background: transparent;
   
 }
 
@@ -19,18 +22,19 @@ header {
   margin-bottom: 18px;
 }
 
-.card {
+.quizCard {
   padding: 18px;
   border: 2px solid;
   border-radius: 12px;
   box-sizing: border-box;
-  
+  background-color:pink;
 }
 
 .question {
   font-size: 1.25rem;
   margin-bottom: 18px;
   color: var(--primary-color);
+  background-color: brown;
 
 }
 
@@ -40,6 +44,7 @@ header {
   gap: 12px;
   margin-bottom: 16px;
   color: var(--primary-color);
+  background-color: brown;  
 }
 
 .optionBtn {
@@ -76,6 +81,7 @@ header {
   justify-content: center;
   margin-top: 8px;
   flex-wrap: wrap;
+  background-color: rgb(132, 165, 42);
 }
 
 .navBtn {
@@ -98,6 +104,7 @@ header {
   margin-top: 12px;
   text-align: center;
   font-size: 0.9rem;
+  background-color: salmon;
 }
 
 /* Utility to hide/show elements toggled by JS */
@@ -113,6 +120,7 @@ header {
   background-color: var(--primary-color);
   z-index: 1050;
   padding: 20px 20px;
+  background: transparent
 }
 
 .quizWindow .quizPanel {
@@ -123,7 +131,13 @@ header {
   padding: 18px;
   border-radius: 10px;
 }
-
+.progress {
+  height: 20px;
+  background-color: var(--primary-color-highlight);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
 /* Results styling for per-question feedback */
 .detailedResults .resultItem {
    border: 1px solid var(--primary-color); 
@@ -134,14 +148,15 @@ header {
    grid-template-columns: 1fr 1fr; 
    gap: 8px; 
    margin-top: 8px; 
-   background: transparent;
+  
+   
   }
 .resultOption { 
    background-color: var(--primary-color);
     color: var(--secondary-color);
   border: 1px solid var(--secondary-color-highlight); 
   border-radius: 8px; 
-  background:  transparent; 
+  
 }
 .resultOption.correct {
    
@@ -150,7 +165,7 @@ header {
     background-color: #28a745;
    border-color: #28a745; }
 .resultOption.wrongSelected { 
-   background: transparent; 
+   
     color: var(--secondary-color);
     background-color: #dc3545;
    border-color: #dc3545; 
