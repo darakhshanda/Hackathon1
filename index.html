@@ -81,8 +81,9 @@
             <div class="modal-dialog modal-dialog-centered">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h1 class="modal-title fs-5" id="instructions-modal-label">
-                    How to Play
+                  <h1 class="modal-title fs-5 d-flex align-items-center gap-2" id="instructions-modal-label">
+                  <img src="assets/images/castle.png" alt="Castle icon" width="28" height="28" class="me-2 align-middle" />
+                  How to Play
                   </h1>
                   <button
                     type="button"
@@ -179,12 +180,12 @@
         role="dialog"
         aria-labelledby="staticBackdropLabel"
       >
-        <div class="quizPanel card">
-          <div class="modal-header">
+      <div class="quizPanel card">
+        <div class="modal-header">
             <h1 class="modal-title fs-5" id="staticBackdropLabel">
               Select your Answers
             </h1>
-          </div>
+        </div>
           <div class="modal-body">
             <!-- Quiz Section -->
             <section class="quiz" id="quiz" aria-live="polite">
@@ -205,10 +206,9 @@
                 <button id="pauseBtn" type="button" class="btn btn-primary">Pause</button>
                 <button id="submitQuizBtn" type="button" class="btn btn-primary">Submit Quiz</button>
               </div>
+              </section>
             </section>
-          </section>
         </div>
-
       </div>
 
       <!-- Results Section -->
@@ -242,13 +242,13 @@
       </section>
       <!-- ...Word of the Day... -->
       <section id="word-of-day" class="card my-3 mx-auto" style="max-width:600px;" aria-live="polite">
-    <div class="card-body">
-      <h2 class="card-title fs-5">Word of the Day</h2>
-      <p id="wotd-word" class="h4 mb-1">Loading…</p>
-      <p id="wotd-def" class="mb-0 text-muted">Definition will appear here</p>
-      <small id="wotd-source" class="text-muted d-block mt-2">Source</small>
-    </div>
-  </section>
+        <div class="card-body">
+          <h2 class="card-title fs-5">Word of the Day</h2>
+          <p id="wotd-word" class="h4 mb-1">Loading…</p>
+          <p id="wotd-def" class="mb-0 text-muted">Definition will appear here</p>
+          <small id="wotd-source" class="text-muted d-block mt-2">Source</small>
+        </div>
+      </section>
     </main>
 
   <!-- Footer-->
