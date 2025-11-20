@@ -87,7 +87,46 @@
     border: 2px solid var(--primary-color-highlight);
 }
 
-/* Questions Select Styles */
+/* Options Styles */
+
+#usernameInput {
+    background:transparent;
+    color: var(--secondary-color) !important;
+    border: none !important;
+}
+
+/* Style form placeholders (inputs / textareas) */
+#usernameInput::placeholder,
+.form-control::placeholder,
+textarea::placeholder {
+  color: var(--secondary-color);
+  opacity: 1;                      /* Override default opacity in some browsers */
+  font-style: italic;
+  font-weight: 500;
+}
+
+/* Vendor fallbacks for older browsers */
+#usernameInput::-webkit-input-placeholder,
+.form-control::-webkit-input-placeholder { color: var(--secondary-color); }
+#usernameInput:-ms-input-placeholder,
+.form-control:-ms-input-placeholder { color: var(--secondary-color); }
+#usernameInput::-ms-input-placeholder,
+.form-control::-ms-input-placeholder { color: var(--secondary-color); }
+/* Style "placeholder" option for selects.
+   To use, add a first option like:
+     <option value="" disabled selected hidden>Select...</option>
+*/
+.form-select option[disabled] {
+  color: var(--secondary-color);
+}
+
+/* If you want a visible select "placeholder" color for modern browsers,
+   target the select when its value is empty (requires the disabled option pattern) */
+.form-select:invalid {
+  color: var(--secondary-color);
+}
+
+
 
 .options-jc {
     background-color: var(--primary-color);
@@ -166,3 +205,53 @@
     font-size: 0.95rem;
     padding: 0.25rem 0.6rem;
 }
+/* Make options section stack and center like mobile */
+#optionsSection,
+#optionsSection .row {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 1rem !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+/* Constrain each control to the mobile widths */
+#optionsSection .options-jc,
+#questionsSelectContainer.options-jc,
+#difficultyLevel.options-jc {
+    width: 100% !important;
+    max-width: 420px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0.5rem !important;
+    padding: 0.25rem 0.6rem !important;
+    border-radius: 0.5rem !important;
+    box-sizing: border-box !important;
+}
+
+/* Ensure selects/inputs match mobile sizing */
+#optionsSection .form-select,
+#optionsSection .form-control,
+#questionsSelectContainer.options-jc .form-select,
+#difficultyLevel.options-jc .form-select {
+    min-width: 140px !important;
+    max-width: 320px !important;
+    width: 100% !important;
+    padding: 0.45rem 0.6rem !important;
+    font-size: 1rem !important;
+    box-sizing: border-box !important;
+}
+
+/* Labels inline with selects (mobile style) */
+#questionsSelectContainer.options-jc .form-label,
+#difficultyLevel.options-jc .form-label {
+    display: inline-block !important;
+    margin-right: 0.4rem !important;
+    font-weight: 600 !important;
+    color: var(--secondary-color) !important;
+}
+
+
