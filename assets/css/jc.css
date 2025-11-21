@@ -223,7 +223,6 @@
     border: 2px solid var(--secondary-color-highlight);
 }
 
-
 /* Options Styles */
 
 #usernameInput {
@@ -396,3 +395,128 @@ textarea::placeholder {
     color: var(--secondary-color) !important;
 }
 
+/* Results: match site theme (cards, buttons, badges) */
+#resultsSection {
+    color: var(--secondary-color);
+    padding: 1.25rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+}
+
+#results {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border: 2px solid var(--primary-color-highlight);
+    border-radius: 0.75rem;
+    max-width: 720px;
+    width: calc(100% - 2rem);
+    padding: 1.25rem;
+    box-shadow: 0 6px 18px rgba(2, 12, 30, 0.35);
+    box-sizing: border-box;
+    margin: 0 auto;
+}
+
+/* Score banner */
+#results #score {
+    display: block;
+    font-weight: 800;
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    color: var(--secondary-color);
+    text-align: center;
+}
+
+/* Summary numbers */
+#results p {
+    color: var(--secondary-color);
+    margin: 0.25rem 0;
+    text-align: center;
+}
+
+/* Box that contains the numeric score */
+#results .box {
+    background: rgba(252, 224, 59, 0.06);
+    border: 1px dashed rgba(252, 224, 59, 0.12);
+    padding: 1rem;
+    margin: 0.75rem auto;
+    border-radius: 0.5rem;
+    max-width: 520px;
+}
+
+/* Detailed per-question results */
+.resultItem {
+    background-color: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    margin-bottom: 0.6rem;
+    color: var(--secondary-color);
+}
+
+.resultQuestion {
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--secondary-color);
+}
+
+.resultOptions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+}
+
+.resultOption {
+    padding: 0.5rem;
+    border-radius: 0.45rem;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    color: var(--secondary-color);
+    font-size: 0.95rem;
+}
+
+/* Correct / wrong indicators */
+.resultOption.correct {
+    background-color: rgba(47, 169, 194, 0.12);
+    border-color: var(--primary-color-highlight);
+    color: var(--secondary-color);
+    box-shadow: 0 0 0 0.06rem rgba(47, 169, 194, 0.06) inset;
+}
+.resultOption.wrongSelected {
+    background-color: rgba(168, 40, 40, 0.1);
+    border-color: rgba(168, 40, 40, 0.9);
+    color: var(--secondary-color);
+    font-weight: 700;
+}
+
+/* Buttons in results area should match btn-jc sizing and alignment */
+#results .btn-jc,
+#results .btn-info-jc {
+    margin: 0.5rem 0.5rem 0 0.5rem;
+    min-width: 140px;
+    box-sizing: border-box;
+}
+
+/* Make retry/review centered on small screens */
+#results .box + button,
+#results .box + .btn {
+    display: inline-block;
+    margin: 0.5rem;
+}
+
+/* Responsive tweaks */
+@media (max-width: 480px) {
+    #results {
+        padding: 1rem;
+    }
+    .resultOptions {
+        grid-template-columns: 1fr;
+    }
+    #results .btn-jc,
+    #results .btn-info-jc {
+        width: 150px;
+        height: 75px;
+        font-size: 1.05rem;
+    }
+}
