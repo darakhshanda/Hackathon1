@@ -130,9 +130,9 @@
     <!-- Quiz Window (managed by JS, not Bootstrap modal) -->
     <div id="quizWindow" class="quizWindow hidden" aria-hidden="true" role="dialog"
       aria-labelledby="staticBackdropLabel">
-      <div class="quizPanel quizCard">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="staticBackdropLabel">
+      <div class="quizPanel quizPanel-jc card">
+        <div class="modal-header ">
+          <h1 class="modal-title fs-5 mb-2" id="staticBackdropLabel">
             Select your Answers
           </h1>
         </div>
@@ -160,10 +160,10 @@
                 No answer selected
               </div>
               <div class="text-center mb-4">
-                <button id="pauseBtn" type="button" class="btn btn-primary">
+                <button id="pauseBtn" type="button" class="btn btn-info-jc">
                   Pause
                 </button>
-                <button id="submitQuizBtn" type="button" class="btn btn-primary">
+                <button id="submitQuizBtn" type="button" class="btn btn-info-jc">
                   Submit Quiz
                 </button>
               </div>
@@ -198,13 +198,7 @@
     <!-- ...Word of the Day... -->
 
     <section id="word-of-day" class="card my-3 mx-auto" style="max-width: 400px" aria-live="polite">
-      <div class="card-body" style="
-            background-color: var(--secondary-color);
-            color: var(--primary-color);
-            border: 3px solid var(--primary-color-highlight);
-            padding: 0.5rem 1rem;
-            border-radius: 0.35rem;
-          ">
+      <div class="card-jc">
         <h2 class="card-title fs-5">Word of the Day</h2>
         <p id="wotd-word" class="h4 mb-1">Loading…</p>
         <p id="wotd-def" class="mb-0 text-muted">

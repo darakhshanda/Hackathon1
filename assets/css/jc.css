@@ -54,7 +54,7 @@
 .card-jc {
     background-color: var(--primary-color);
     border: 2px solid var(--primary-color-highlight);
-    color: var(--secondary-color);
+    color: var(--secondary-color) !important;
     padding: 1rem;
 }
 
@@ -92,20 +92,24 @@
 
 #wotd-word,
 #wotd-def {
-    color: var(--secondary-color);
+    color: var(--secondary-color) !important;
 }
 
 /*Quiz Styles*/
 
 .quizWindow-jc {
-    background: url(../images/background1.png) no-repeat center center fixed !important;
+    background: transparent;
+    backdrop-filter: blur(8px);
+
 }
 
 /*Quiz Panel Styles*/
 .quizPanel-jc {
     background-color: var(--primary-color) !important;
     border: 2px solid var(--primary-color-highlight);
-    color: var(--secondary-color);
+    color: var(--secondary-color) !important;
+    justify-content: center;
+    align-items: center;
 }
 
 #quizWindow .modal-header {
@@ -124,9 +128,10 @@
     justify-content: center;
     padding-top: 5px;
 }
-.question {
-    margin-left: 175px;
+.questions{
+    color: var(--secondary-color);
 }
+
 
 .optionBtn {
     padding: 14px;
