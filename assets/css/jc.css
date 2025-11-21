@@ -35,7 +35,6 @@
     background-color: var(--secondary-color);
     color: var(--primary-color);
     border: 2px solid var(--secondary-color-highlight);
- 
 }
 
 .btn-info-jc:hover {
@@ -84,10 +83,150 @@
     border: 2px solid var(--primary-color-highlight);
 }
 
+/* Word of the day card styles */
+#word-of-day {
+    background: transparent;
+    border: none;
+    color: var(--secondary-color);
+}
+
+#wotd-word,
+#wotd-def {
+    color: var(--secondary-color);
+}
+
+/*Quiz Styles*/
+
+.quizWindow-jc {
+    background: url(../images/background1.png) no-repeat center center fixed !important;
+}
+
+/*Quiz Panel Styles*/
+.quizPanel-jc {
+    background-color: var(--primary-color) !important;
+    border: 2px solid var(--primary-color-highlight);
+    color: var(--secondary-color);
+}
+
+#quizWindow .modal-header {
+    border: 2px solid var(--primary-color-highlight);
+    border-radius: 8px;
+    justify-content: center;
+}
+
+#progress.progress {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    border: 2px solid var(--secondary-color-highlight);
+    font-size: 1rem;
+    height: 35px;
+    font-weight: bold;
+    justify-content: center;
+    padding-top: 5px;
+}
+.question {
+    margin-left: 175px;
+}
+
+.optionBtn {
+    padding: 14px;
+    font-size: 1rem;
+    border-radius: 10px;
+    border: 2px solid var(--primary-color-highlight);
+    cursor: pointer;
+    text-align: center;
+    user-select: none;
+    transition: transform 120ms ease, font-weight 120ms ease,
+        background-color 120ms ease, color 120ms ease, box-shadow 120ms ease;
+    white-space: normal;
+    /* match primary button look */
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    box-sizing: border-box;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Hover / focus states similar to .btn-jc */
+.optionBtn:hover,
+.optionBtn:focus-visible {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    border-color: var(--secondary-color-highlight);
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba(47, 169, 194, 0.18);
+}
+
+/* Selected option: invert to highlight user's choice */
+.optionBtn.selected {
+    font-weight: 700;
+    transform: scale(1.03);
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    border: 2px solid var(--secondary-color-highlight);
+}
+
+/* Disabled state for accessibility */
+.optionBtn[disabled],
+.optionBtn.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+/* Nav buttons (Previous / Next) styled to match scheme */
+.navBtn {
+    padding: 10px 14px;
+    font-size: 0.95rem;
+    border-radius: 8px;
+    border: 2px solid var(--primary-color-highlight);
+    cursor: pointer;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    transition: background-color 120ms ease, color 120ms ease,
+        border-color 120ms ease, box-shadow 120ms ease;
+    box-sizing: border-box;
+}
+
+/* Hover / focus for nav */
+.navBtn:hover,
+.navBtn:focus-visible {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    border-color: var(--secondary-color-highlight);
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba(47, 169, 194, 0.18);
+}
+
+.navBtn[disabled] {
+    opacity: 0.5;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+.btn-quiz-jc {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border: 2px solid var(--primary-color-highlight);
+}
+
+.btn-quiz-jc:hover {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    border: 2px solid var(--secondary-color-highlight);
+}
+
+.btn-quiz-jc:focus-visible {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    border: 2px solid var(--secondary-color-highlight);
+}
+
 /* Options Styles */
 
 #usernameInput {
-    background:transparent;
+    background: transparent;
     color: var(--secondary-color) !important;
     border: none !important;
 }
@@ -96,34 +235,38 @@
 #usernameInput::placeholder,
 .form-control::placeholder,
 textarea::placeholder {
-  color: var(--secondary-color);
-  opacity: 1;                      /* Override default opacity in some browsers */
-  font-style: italic;
-  font-weight: 500;
+    color: var(--secondary-color);
+    opacity: 1; /* Override default opacity in some browsers */
+    font-style: italic;
+    font-weight: 500;
 }
 
 /* Vendor fallbacks for older browsers */
 #usernameInput::-webkit-input-placeholder,
-.form-control::-webkit-input-placeholder { color: var(--secondary-color); }
+.form-control::-webkit-input-placeholder {
+    color: var(--secondary-color);
+}
 #usernameInput:-ms-input-placeholder,
-.form-control:-ms-input-placeholder { color: var(--secondary-color); }
+.form-control:-ms-input-placeholder {
+    color: var(--secondary-color);
+}
 #usernameInput::-ms-input-placeholder,
-.form-control::-ms-input-placeholder { color: var(--secondary-color); }
+.form-control::-ms-input-placeholder {
+    color: var(--secondary-color);
+}
 /* Style "placeholder" option for selects.
    To use, add a first option like:
      <option value="" disabled selected hidden>Select...</option>
 */
 .form-select option[disabled] {
-  color: var(--secondary-color);
+    color: var(--secondary-color);
 }
 
 /* If you want a visible select "placeholder" color for modern browsers,
    target the select when its value is empty (requires the disabled option pattern) */
 .form-select:invalid {
-  color: var(--secondary-color);
+    color: var(--secondary-color);
 }
-
-
 
 .options-jc {
     background-color: var(--primary-color);
@@ -133,7 +276,8 @@ textarea::placeholder {
     border-radius: 0.5rem; /* fallback in case Bootstrap utilities are not present */
 }
 
-#questionsSelectContainer.options-jc, #difficultyLevel.options-jc {
+#questionsSelectContainer.options-jc,
+#difficultyLevel.options-jc {
     /* Let Bootstrap `col-auto` control sizing; keep this minimal so Bootstrap utilities do the heavy lifting */
     display: inline-block;
     width: auto;
@@ -251,4 +395,128 @@ textarea::placeholder {
     color: var(--secondary-color) !important;
 }
 
+/* Results: match site theme (cards, buttons, badges) */
+#resultsSection {
+    color: var(--secondary-color);
+    padding: 1.25rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+}
 
+#results {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border: 2px solid var(--primary-color-highlight);
+    border-radius: 0.75rem;
+    max-width: 720px;
+    width: calc(100% - 2rem);
+    padding: 1.25rem;
+    box-shadow: 0 6px 18px rgba(2, 12, 30, 0.35);
+    box-sizing: border-box;
+    margin: 0 auto;
+}
+
+/* Score banner */
+#results #score {
+    display: block;
+    font-weight: 800;
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    color: var(--secondary-color);
+    text-align: center;
+}
+
+/* Summary numbers */
+#results p {
+    color: var(--secondary-color);
+    margin: 0.25rem 0;
+    text-align: center;
+}
+
+/* Box that contains the numeric score */
+#results .box {
+    background: rgba(252, 224, 59, 0.06);
+    border: 1px dashed rgba(252, 224, 59, 0.12);
+    padding: 1rem;
+    margin: 0.75rem auto;
+    border-radius: 0.5rem;
+    max-width: 520px;
+}
+
+/* Detailed per-question results */
+.resultItem {
+    background-color: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    margin-bottom: 0.6rem;
+    color: var(--secondary-color);
+}
+
+.resultQuestion {
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--secondary-color);
+}
+
+.resultOptions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+}
+
+.resultOption {
+    padding: 0.5rem;
+    border-radius: 0.45rem;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    color: var(--secondary-color);
+    font-size: 0.95rem;
+}
+
+/* Correct / wrong indicators */
+.resultOption.correct {
+    background-color: rgba(47, 169, 194, 0.12);
+    border-color: var(--primary-color-highlight);
+    color: var(--secondary-color);
+    box-shadow: 0 0 0 0.06rem rgba(47, 169, 194, 0.06) inset;
+}
+.resultOption.wrongSelected {
+    background-color: rgba(168, 40, 40, 0.1);
+    border-color: rgba(168, 40, 40, 0.9);
+    color: var(--secondary-color);
+    font-weight: 700;
+}
+
+/* Buttons in results area should match btn-jc sizing and alignment */
+#results .btn-jc,
+#results .btn-info-jc {
+    margin: 0.5rem 0.5rem 0 0.5rem;
+    min-width: 140px;
+    box-sizing: border-box;
+}
+
+/* Make retry/review centered on small screens */
+#results .box + button,
+#results .box + .btn {
+    display: inline-block;
+    margin: 0.5rem;
+}
+
+/* Responsive tweaks */
+@media (max-width: 480px) {
+    #results {
+        padding: 1rem;
+    }
+    .resultOptions {
+        grid-template-columns: 1fr;
+    }
+    #results .btn-jc,
+    #results .btn-info-jc {
+        width: 150px;
+        height: 75px;
+        font-size: 1.05rem;
+    }
+}
