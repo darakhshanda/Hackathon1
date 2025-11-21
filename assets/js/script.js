@@ -313,6 +313,12 @@ async function showQuiz() {
   setupQuiz();
   renderQuestion();
   focusFirstOption();
+  // fetch and show a random defined word in the Random Word panel
+  try {
+    await showRandomWordInUI();
+  } catch (err) {
+    console.warn('Error fetching random word for UI:', err);
+  }
 }
 
 function hideQuiz() {
@@ -408,7 +414,8 @@ const usernameInputEl = document.getElementById("usernameInput");
 if (usernameInputEl) {
   usernameInputEl.addEventListener("keydown", (e) => {
     if (e.key === "Enter") {
-      e.setfocus(startBtn);
+      // start the quiz when Enter is pressed in the username field
+      startWithUsername();
     }
   });
 }
@@ -446,7 +453,7 @@ if (submitBtn)
     hideQuiz();
     showResults();
   });
- 
+
 if (reviewBtn) reviewBtn.addEventListener("click", showReview);
 if (retryBtn)
   retryBtn.addEventListener("click", showQuiz);
@@ -462,6 +469,126 @@ window.addEventListener("keydown", (e) => {
   
   }
 });
+// populate UI Random Word panel on load
+window.addEventListener("load", () => {
+  // show a random defined word in the UI (non-blocking)
+  showRandomWordInUI().catch((err) => console.warn('Random word on load failed:', err));
+});
+//Fetch Word of the Day from Wordnik API
+//Darakhshanda sample code
+// Get a random word from a free service (no auth)
+// Fetch with timeout helper
+async function fetchWithTimeout(url, options = {}, timeout = 6000) {
+  const controller = new AbortController();
+  const id = setTimeout(() => controller.abort(), timeout);
+  try {
+    const res = await fetch(url, { signal: controller.signal, ...options });
+    clearTimeout(id);
+    return res;
+  } catch (err) {
+    clearTimeout(id);
+    throw err;
+  }
+}
+
+// Try multiple public random-word endpoints (fallbacks) and return a single word
+async function fetchRandomWord() {
+  const endpoints = [
+    'https://random-word-api.vercel.app/api?words=1',
+    'https://random-word-api.herokuapp.com/word?number=1'
+  ];
+
+  for (const url of endpoints) {
+    try {
+      const resp = await fetchWithTimeout(url, {}, 5000);
+      if (!resp.ok) {
+        console.warn('Random word endpoint failed:', url, resp.status);
+        continue;
+      }
+
+      const json = await resp.json();
+      // endpoints return either ['word'] or {words:['word']}
+      if (Array.isArray(json) && json.length > 0) return json[0];
+      if (json && Array.isArray(json.words) && json.words.length > 0) return json.words[0];
+      // unexpected shape — try next
+      console.warn('Random word endpoint returned unexpected shape:', url, json);
+    } catch (err) {
+      console.warn('Error fetching random word from', url, err && err.name ? err.name : err);
+      // try next endpoint
+    }
+  }
+
+  throw new Error('All random-word endpoints failed');
+}
+
+// Query dictionaryapi.dev for a word's definitions
+async function fetchDefinitionFromFreeDict(word) {
+  const url = `https://api.dictionaryapi.dev/api/v2/entries/en/${encodeURIComponent(word)}`;
+  const resp = await fetch(url);
+  if (!resp.ok) {
+    console.warn('Dictionary API returned non-OK:', resp.status, url);
+    return null;
+  }
+  const text = await resp.text();
+  // dictionaryapi.dev sometimes returns a JSON array of suggestion strings when the word isn't found.
+  try {
+    const data = JSON.parse(text);
+    // If the API returned suggestions (array of strings) treat as not-found
+    if (!Array.isArray(data) || typeof data[0] === 'string') {
+      return null;
+    }
+    // Normal case: array of entry objects
+    const entry = data[0];
+    const meanings = (entry.meanings || []).flatMap(m =>
+      (m.definitions || []).map(d => ({
+        partOfSpeech: m.partOfSpeech,
+        definition: d.definition,
+        example: d.example || null
+      }))
+    );
+    return {
+      word: entry.word || word,
+      phonetics: entry.phonetics || [],
+      meanings
+    };
+  } catch (err) {
+    // invalid JSON or unexpected response
+    return null;
+  }
+}
+
+// Try multiple times to get a random word that has a definition
+async function getRandomDefinedWord({ maxAttempts = 6 } = {}) {
+  for (let i = 0; i < maxAttempts; i++) {
+    try {
+      const w = await fetchRandomWord();
+      const def = await fetchDefinitionFromFreeDict(w);
+      if (def && def.meanings && def.meanings.length > 0) {
+        return def; // success
+      }
+      // otherwise try again
+    } catch (err) {
+      // network error, continue and retry up to maxAttempts
+      // optionally you can break for certain errors
+    }
+  }
+  throw new Error('No defined random word found after attempts');
+}
+
+// show result in some DOM elements
+async function showRandomWordInUI() {
+  try {
+    const info = await getRandomDefinedWord();
+    document.getElementById('randomWord').innerHTML = `Word: ${info.word}<br>`;
+    // show first definition
+    const def = info.meanings[0];
+    document.getElementById('metaRW').textContent = def ? `${def.partOfSpeech}: ${def.definition}` : 'No definition found';
+  } catch (e) {
+    document.getElementById('randomWord').textContent = 'Could not fetch a word. Try again.';
+    console.error(e);
+  }
+}
+
 
 
 
