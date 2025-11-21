@@ -103,7 +103,7 @@
 
 /*Quiz Panel Styles*/
 .quizPanel-jc {
-    background-color: var(--primary-color);
+    background-color: var(--primary-color) !important;
     border: 2px solid var(--primary-color-highlight);
     color: var(--secondary-color);
 }
