@@ -84,6 +84,16 @@
     border: 2px solid var(--primary-color-highlight);
 }
 
+/* Word of the day card styles */
+#word-of-day{
+    background:transparent;
+    border: none;
+    color: var(--secondary-color);
+}
+
+#wotd-word, #wotd-def {
+    color: var(--secondary-color);
+}
 /* Options Styles */
 
 #usernameInput {

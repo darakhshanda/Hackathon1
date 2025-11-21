@@ -191,10 +191,10 @@
     </section>
     <!-- ...Word of the Day... -->
     <section id="word-of-day" class="card my-3 mx-auto" style="max-width:600px;" aria-live="polite">
-      <div class="card-body">
+      <div class="card-jc card-body rounded-3">
         <h2 class="card-title fs-5">Word of the Day</h2>
         <p id="wotd-word" class="h4 mb-1">Loading…</p>
-        <p id="wotd-def" class="mb-0 text-muted">Definition will appear here</p>
+        <p id="wotd-def" class="mb-0">Definition will appear here</p>
         <small id="wotd-source" class="text-muted d-block mt-2">Source</small>
       </div>
     </section>
@@ -252,63 +252,3 @@
 </body>
 
 </html>
-
-<!-- <style>
-  /* Make the Difficulty control visually match the Questions control */
-  #difficultyLevel {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    width: auto;
-    font-size: 0.95rem;
-    padding: 0.25rem 0.6rem;
-    border-radius: 0.5rem;
-    background-color: var(--primary-color);
-    color: var(--secondary-color);
-    border: solid 2px var(--primary-color-highlight);
-    justify-content: center;
-    margin: 0 auto;
-    position: relative;
-  }
-
-  /* Keep label and select inline */
-  #difficultyLevel .form-label,
-  #difficultyLevel .form-select {
-    display: inline-block;
-    vertical-align: middle;
-  }
-
-  /* Label styling */
-  #difficultyLevel .form-label {
-    margin-right: 0.4rem;
-    font-weight: 600;
-    color: var(--secondary-color);
-  }
-
-  /* Match select styling used for Questions */
-  #difficultyLevel .form-select {
-    background-color: transparent;
-    color: var(--secondary-color);
-    border: 1px solid var(--primary-color-highlight);
-    height: auto;
-    min-height: 2.1rem;
-    border-radius: 0.35rem;
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%232596be' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
-    appearance: none;
-    padding-right: 1.6rem;
-    /* give space for caret */
-  }
-
-  /* Focus state */
-  #difficultyLevel .form-select:focus {
-    outline: none;
-    box-shadow: 0 0 0 0.2rem rgba(47, 169, 194, 0.18);
-    border-color: var(--primary-color-highlight);
-  }
-
-  /* Native option fallback */
-  #difficultyLevel .form-select option {
-    background-color: var(--primary-color);
-    color: var(--secondary-color);
-  }
-</style> -->
