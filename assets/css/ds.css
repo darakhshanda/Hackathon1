@@ -6,11 +6,15 @@
         padding: 10px;
         box-shadow: 2px 2px 5px var(--secondary-color);
        
+       
     }
 
 .quiz {
   width: 100%;
   max-width: 720px;
+  background-color: var(--primary-color-highlight);
+  background: transparent;
+  
 }
 
 header {
@@ -18,16 +22,20 @@ header {
   margin-bottom: 18px;
 }
 
-.card {
+.quizCard {
   padding: 18px;
   border: 2px solid;
   border-radius: 12px;
   box-sizing: border-box;
+  background-color:pink;
 }
 
 .question {
   font-size: 1.25rem;
   margin-bottom: 18px;
+  color: var(--primary-color);
+  background-color: brown;
+
 }
 
 .options {
@@ -35,6 +43,8 @@ header {
   grid-template-columns: 1fr 1fr;
   gap: 12px;
   margin-bottom: 16px;
+  color: var(--primary-color);
+  background-color: brown;  
 }
 
 .optionBtn {
@@ -47,17 +57,22 @@ header {
   user-select: none;
   transition: transform 120ms ease, font-weight 120ms ease;
   white-space: normal;
-  background: transparent;
+  background-color: var(--primary-color-highlight);
+  border-color: var(--primary-color-highlight)
 }
 
 .optionBtn:focus {
   outline: 4px auto;
   outline-offset: 3px;
+  outline-color: var(--secondary-color-highlight);
+  
+
 }
 
 .optionBtn.selected {
   font-weight: 700;
   transform: scale(1.03);
+  outline-color: #28a745;
 }
 
 .controls {
@@ -66,6 +81,7 @@ header {
   justify-content: center;
   margin-top: 8px;
   flex-wrap: wrap;
+  background-color: rgb(132, 165, 42);
 }
 
 .navBtn {
@@ -75,6 +91,8 @@ header {
   border: 2px solid;
   cursor: pointer;
   background: transparent;
+  color: var(--secondary-color);
+  background-color: var(--primary-color);
 }
 
 .navBtn[disabled] {
@@ -86,6 +104,7 @@ header {
   margin-top: 12px;
   text-align: center;
   font-size: 0.9rem;
+  background-color: salmon;
 }
 
 /* Utility to hide/show elements toggled by JS */
@@ -98,19 +117,27 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--primary-color);
+  background-color: var(--primary-color);
   z-index: 1050;
-  padding: 20px;
+  padding: 20px 20px;
+  background: transparent
 }
 
 .quizWindow .quizPanel {
   max-width: 900px;
   width: 100%;
-  background: var(--primary-color);
+  background: transparent;
+  background-color: var(--secondary-color);
   padding: 18px;
   border-radius: 10px;
 }
-
+.progress {
+  height: 20px;
+  background-color: var(--primary-color-highlight);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
 /* Results styling for per-question feedback */
 .detailedResults .resultItem {
    border: 1px solid var(--primary-color); 
@@ -121,27 +148,34 @@ header {
    grid-template-columns: 1fr 1fr; 
    gap: 8px; 
    margin-top: 8px; 
+  
+   
   }
 .resultOption { 
-  border: 1px solid var(--primary-color); 
+   background-color: var(--primary-color);
+    color: var(--secondary-color);
+  border: 1px solid var(--secondary-color-highlight); 
   border-radius: 8px; 
-  background: var(--background-color); 
+  
 }
 .resultOption.correct {
-   background: var(--background-color); 
+   
+    color: var(--secondary-color);
+   background:  transparent; 
+    background-color: #28a745;
    border-color: #28a745; }
 .resultOption.wrongSelected { 
-   background: var(--background-color); 
+   
+    color: var(--secondary-color);
+    background-color: #dc3545;
    border-color: #dc3545; 
 }
 /* code for style.css*/
 .input-group {
+   background-color: var(--primary-color);
+    color: var(--secondary-color);
     max-width: 400px;
     margin: 0 auto 20px auto;
     
     
-  }
-#usernameButton {
-      background-color: var(--primary-color);
-    color: var(--background-color);
   }
