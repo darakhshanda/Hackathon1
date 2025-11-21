@@ -92,7 +92,7 @@
 
 #wotd-word,
 #wotd-def {
-    color: var(--secondary-color);
+    color: var(--secondary-color) !important;
 }
 
 /*Quiz Styles*/
