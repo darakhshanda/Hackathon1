@@ -128,7 +128,7 @@
       </button>
     </section>
     <!-- Quiz Window (managed by JS, not Bootstrap modal) -->
-    <div id="quizWindow" class="quizWindow quizWindow-jc hidden" aria-hidden="true" role="dialog"
+    <div id="quizWindow" class="quizWindow hidden" aria-hidden="true" role="dialog"
       aria-labelledby="staticBackdropLabel">
       <div class="quizPanel quizPanel-jc card">
         <div class="modal-header ">
@@ -142,7 +142,7 @@
             <div id="progress" class="progress" aria-hidden="true">
               Question 1 / 5
             </div>
-            <section class="card-jc rounded-3" aria-labelledby="question">
+            <section class="quizCard" aria-labelledby="question">
               <div id="question" class="question">
                 Question will appear here
               </div>
@@ -160,8 +160,12 @@
                 No answer selected
               </div>
               <div class="text-center mb-4">
-                <button id="pauseBtn" type="button" class="btn btn-quiz-jc">Pause</button>
-                <button id="submitQuizBtn" type="button" class="btn btn-quiz-jc">Submit Quiz</button>
+                <button id="pauseBtn" type="button" class="btn btn-primary">
+                  Pause
+                </button>
+                <button id="submitQuizBtn" type="button" class="btn btn-primary">
+                  Submit Quiz
+                </button>
               </div>
             </section>
           </section>
@@ -179,7 +183,7 @@
             <span id="score">0</span>
             <p>Correct Answers: <span id="correctAnswers">0</span></p>
             <p>Wrong Answers: <span id="wrongAnswers">0</span></p>
-            <button id="retryBtn" type="button" class="btn btn-info-jc btn-lg">
+            <button id="retryBtn" type="button" class="btn btn-jc btn-lg">
               Retry
             </button>
             <button id="reviewBtn" type="button" class="btn btn-info-jc btn-lg">
@@ -190,26 +194,22 @@
         </div>
       </div>
     </section>
-    <section id="randomWordShow ">
-      <div class="container text-center mt-3 mb-3 optionBtn"> <span id="randomWord"></span>
-        <!--Word of the section-->
-        <br>
-        <span id="metaRW"></span>
-        <!--definition-->
-      </div>
-      <p style="font-size: small" class:="mb-3">
-        Note: WordQuest uses free public dictionary APIs to fetch word definitions.
-        Occasionally, some words may not have available definitions, which could
-        affect the quiz experience. We are working to improve this by integrating
-        additional dictionary sources in future updates.
-      </p>
-    </section>
+   
     <!-- ...Word of the Day... -->
-    <section id="word-of-day" class="card my-3 mx-auto" style="max-width:600px;" aria-live="polite">
-      <div class="card-jc card-body rounded-3">
+
+    <section id="word-of-day" class="card my-3 mx-auto" style="max-width: 400px" aria-live="polite">
+      <div class="card-body" style="
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            border: 3px solid var(--primary-color-highlight);
+            padding: 0.5rem 1rem;
+            border-radius: 0.35rem;
+          ">
         <h2 class="card-title fs-5">Word of the Day</h2>
         <p id="wotd-word" class="h4 mb-1">Loading…</p>
-        <p id="wotd-def" class="mb-0">Definition will appear here</p>
+        <p id="wotd-def" class="mb-0 text-muted">
+          Definition will appear here
+        </p>
         <small id="wotd-source" class="text-muted d-block mt-2">Source</small>
       </div>
     </section>
@@ -225,27 +225,27 @@
           <div class="d-flex justify-content-center justify-content-md-start gap-2 ps-md-3"></div>
         </div>
 
-        <div class="col-md-3 social-links">
+        <div class="col-md-3">
           <div class="d-flex justify-content-center justify-content-md-end gap-2" aria-label="Social media links">
             <a href="https://github.com/darakhshanda/Hackathon1/blob/main/README.md" target="_blank"
-              rel="noopener noreferrer" class="text-decoration-none  mb-3" aria-label="GitHub README">
+              rel="noopener noreferrer" class="text-decoration-none text-white mb-3" aria-label="GitHub README">
               <i class="fab fa-github fs-3" aria-hidden="true"></i>
               <span class="visually-hidden"></span>
             </a>
             <a href="https://twitter.com/yourhandle" target="_blank" rel="noopener noreferrer"
-              class="text-decoration-none  mb-3" aria-label="Twitter">
+              class="text-decoration-none text-white" aria-label="Twitter">
               <i class="fab fa-twitter fs-3" aria-hidden="true"></i>
               <span class="visually-hidden">Twitter</span>
             </a>
 
             <a href="https://www.facebook.com/yourpage" target="_blank" rel="noopener noreferrer"
-              class="text-decoration-none  mb-3" aria-label="Facebook">
+              class="text-decoration-none text-white" aria-label="Facebook">
               <i class="fab fa-facebook fs-3" aria-hidden="true"></i>
               <span class="visually-hidden">Facebook</span>
             </a>
 
             <a href="https://instagram.com/yourhandle" target="_blank" rel="noopener noreferrer"
-              class="text-decoration-none  mb-3" aria-label="Instagram">
+              class="text-decoration-none text-white" aria-label="Instagram">
               <i class="fab fa-instagram fs-3" aria-hidden="true"></i>
               <span class="visually-hidden">Instagram</span>
             </a>
