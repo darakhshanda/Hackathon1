@@ -145,7 +145,14 @@ All content is served via one main HTML file (`index.html`) that links to styles
 
 ## Wireframes
 
-_To be added._
+### Mobile Site
+
+![screenshot](assets/images/mobile.png)
+
+### Desktop Site
+
+![screenshot](assets/images/desktop2.png)
+![screenshot](assets/images/desktop1.png)
 
 ---
 
